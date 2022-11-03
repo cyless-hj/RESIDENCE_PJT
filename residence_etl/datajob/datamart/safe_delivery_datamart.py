@@ -15,8 +15,6 @@ class SafeDeliveryDataMart:
 
     @classmethod
     def _refact_df(cls, df, loc):
-        df = df.filter(col("STD_DAY") == std_day())
-        
         df = df.join(loc, on='LOC_IDX')
 
         df = df.drop(df.LOC_IDX)

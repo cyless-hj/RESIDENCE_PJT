@@ -8,22 +8,16 @@ class NoiseVibrationDataMart:
 
     @classmethod
     def save(cls):
-        nv, loc = cls._load_data()
-        nv = cls._refact_df(nv, loc)
-        nv.show(50)
-        #save_data(DataMart, nv, 'NOISE_VIBRATION')
-
-    @classmethod
-    def _refact_df(cls, df, loc):
-        df = df.filter(col("STD_DAY") == std_day())
-        
-        df = df.join(loc, on='LOC_IDX')
-
-        df = df.drop(df.LOC_IDX)
-        return df
-
-    @classmethod
-    def _load_data(cls):
         nv = find_data(DataWarehouse, 'NOISE_VIBRATION')
+        nv = nv.filter(col("STD_DAY") == std_day())
         loc = find_data(DataWarehouse, 'LOC')
-        return nv, loc
+        nv = nv.join(loc, on='LOC_IDX')
+
+        nv = nv.drop(nv.LOC_IDX) \
+               .drop(nv.DONG_CODE) \
+               .drop(nv.DONG)
+
+        nv = loc.join(nv, on=['SI_DO_CODE', 'SI_DO', 'GU_CODE', 'GU'])
+        nv = nv.drop(nv.LOC_IDX)
+
+        save_data(DataMart, nv, 'NOISE_VIBRATION')

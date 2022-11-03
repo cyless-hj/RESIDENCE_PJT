@@ -13,7 +13,6 @@ class AreaDongDataMart:
         area_dong = area_dong.join(loc, on='LOC_IDX')
 
         area_dong = area_dong.drop(area_dong.LOC_IDX) \
-                         .drop(area_dong.AREA_DONG_ID) \
-                         .drop(area_dong.DONG)
+                         .drop(area_dong.AREA_DONG_ID)
 
         save_data(DataMart, area_dong, 'AREA_DONG')

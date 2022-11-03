@@ -148,5 +148,8 @@ class ConstoreTransformer:
                                  .option("header", "true") \
                                  .option("inferSchema", "true") \
                                  .csv("s3a://residencebucket/raw_data/CON_STORE/CON_STORE.csv")
+
+        df = df.filter((col('ADD_STR') != '') | col('ADD_STR').contains('None') | col('ADD_STR').contains('NULL'))
+        df = df.filter(~col('ADD_STR').contains('?'))
                                  
         return df

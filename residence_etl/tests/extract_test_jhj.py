@@ -1,16 +1,17 @@
 import unittest
-from datajob.etl.extract.academy import AcademyExtractor
-from datajob.etl.extract.animal_hospital import AnimalHospitalExtractor
-from datajob.etl.extract.bike import BikeExtractor
-from datajob.etl.extract.bus import BusExtractor
-from datajob.etl.extract.car_sharing import CarSharingExtractor
-from datajob.etl.extract.child_med import ChildMedExtractor
-from datajob.etl.extract.golf import GolfExtractor
-from datajob.etl.extract.gym import GymExtractor
-from datajob.etl.extract.kids_cafe import KidsCafeExtractor
-from datajob.etl.extract.kindergarten import KindergartenExtractor
-from datajob.etl.extract.pharmacy import PharmacyExtractor
-from datajob.etl.extract.safe_delivery import SafeDeliveryExtractor
+from datajob.etl.extract.academy_extract import AcademyExtractor
+from datajob.etl.extract.animal_hospital_extract import AnimalHospitalExtractor
+from datajob.etl.extract.bike_extract import BikeExtractor
+from datajob.etl.extract.bus_extract import BusExtractor
+from datajob.etl.extract.car_sharing_extract import CarSharingExtractor
+from datajob.etl.extract.child_med_extract import ChildMedExtractor
+from datajob.etl.extract.golf_extract import GolfExtractor
+from datajob.etl.extract.gym_extract import GymExtractor
+from datajob.etl.extract.kids_cafe_extract import KidsCafeExtractor
+from datajob.etl.extract.kindergarten_extract import KindergartenExtractor
+from datajob.etl.extract.pharmacy_extract import PharmacyExtractor
+from datajob.etl.extract.safe_delivery_extract import SafeDeliveryExtractor
+from datajob.etl.extract.vegan_extract import VeganExtractor
 
 
 class MTest(unittest.TestCase):
@@ -49,6 +50,9 @@ class MTest(unittest.TestCase):
 
     def test12(self):
         AnimalHospitalExtractor.extract_data()
+
+    def test13(self):
+        VeganExtractor.extract_data()
 
 
 if __name__ == "__main__":

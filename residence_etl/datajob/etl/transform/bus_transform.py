@@ -135,6 +135,9 @@ class BusTransformer:
         pd_df = pd.concat([pd_bus, pd_add_str, pd_gu, pd_dong], axis=1)
 
         df_bus = spark_session().createDataFrame(pd_df)
+        df1 = df_bus.filter((col("ADD_STR") == '-') | (col("GU") == '-') | (col("DONG") == '-'))
+        df1.show(100)
+        print((df1.count(), len(df1.columns)))
         df_bus = df_bus.filter((col("ADD_STR") != '-') & (col("GU") != '-') & (col("DONG") != '-'))
         return df_bus
 

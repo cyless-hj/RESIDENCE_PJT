@@ -15,8 +15,6 @@ class HighSchoolDataMart:
 
     @classmethod
     def _refact_df(cls, df, loc):
-        df = df.filter(col("STD_DAY") == std_day())
-        
         df = df.join(loc, on='LOC_IDX')
 
         df = df.drop(df.LOC_IDX)
@@ -24,7 +22,7 @@ class HighSchoolDataMart:
 
     @classmethod
     def _load_data(cls):
-        high = find_data(DataWarehouse, 'ELEMENTARY')
+        high = find_data(DataWarehouse, 'HIGH_SCHOOL')
         high = high.filter(col("STD_DAY") == std_day())
         loc = find_data(DataWarehouse, 'LOC')
         return high, loc

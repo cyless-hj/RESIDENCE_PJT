@@ -4,24 +4,24 @@ from infra.spark_session import spark_session
 from geopy.geocoders import Nominatim
 from pyspark.sql import Row
 import pandas as pd
-from infra.util import std_day
+from infra.util import cal_std_day, std_day
 from pyspark.sql.types import *
 import requests
 
 class SportsTransformer:
     @classmethod
     def transform(cls):
-        df_sport = cls._load_csv()
+        df_sport = cls._load_csv().distinct()
         df_sport = cls._add_addr_gu_dong(df_sport)
         df_sport = cls._add_cate_day(df_sport)
         df_sport = cls._add_loc_idx(df_sport)
         
         df_sport = df_sport.withColumn('SPORT_CODE', monotonically_increasing_id())
         df_sport_name = df_sport.select('SPORT_CODE', 'SPORT_NAME', 'STD_DAY')
-        df_sport = df_sport.select('SPORT_CODE', 'FIELD_NAME', 'STD_DAY', 'CATE_CODE', 'LAT', 'LON', 'ADD_STR', 'LOC_IDX')
-        
+        df_sport = df_sport.select('SPORT_CODE', 'FIELD_NAME', 'SPORT_NAME', 'STD_DAY', 'CATE_CODE', 'LAT', 'LON', 'ADD_STR', 'LOC_IDX')
+
         save_data(DataWarehouse, df_sport, 'SPORT_FACILITY')
-        save_data(DataWarehouse, df_sport_name, 'SPORT_NAME')
+        #save_data(DataWarehouse, df_sport_name, 'SPORT_NAME')
 
     @classmethod
     def _add_loc_idx(cls, df):

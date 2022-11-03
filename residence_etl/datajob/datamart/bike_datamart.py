@@ -15,8 +15,6 @@ class BikeDataMart:
 
     @classmethod
     def _refact_df(cls, df, loc):
-        df = df.filter(col("STD_DAY") == std_day())
-        
         df = df.join(loc, on='LOC_IDX')
 
         df = df.drop(df.LOC_IDX)
@@ -25,6 +23,6 @@ class BikeDataMart:
     @classmethod
     def _load_data(cls):
         bike = find_data(DataWarehouse, 'BIKE')
-        bike = bike.filter(col("STD_DAY") == cal_std_day(1))
-        loc = find_data(DataWarehouse, 'BIKE')
+        bike = bike.filter(col("STD_DAY") == std_day())
+        loc = find_data(DataWarehouse, 'LOC')
         return bike, loc

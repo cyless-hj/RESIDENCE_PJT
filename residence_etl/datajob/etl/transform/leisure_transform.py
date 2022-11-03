@@ -4,7 +4,7 @@ from infra.spark_session import spark_session
 from geopy.geocoders import Nominatim
 from pyspark.sql import Row
 import pandas as pd
-from infra.util import std_day
+from infra.util import cal_std_day, std_day
 from pyspark.sql.types import *
 import requests
 
@@ -17,6 +17,7 @@ class LeisureTransformer:
         df_lei = cls._add_loc_idx(df_lei)
 
         save_data(DataWarehouse, df_lei, 'LEISURE')
+        print((df_lei.count(), len(df_lei.columns)))
 
     @classmethod
     def _add_loc_idx(cls, df):
@@ -49,34 +50,31 @@ class LeisureTransformer:
 
     @classmethod
     def _add_gu_dong(cls, df):
-        coord_list = []
-        gu_list = []
+        addr_split_list = []
         add_list = df.select('ADD_STR').rdd.flatMap(lambda x: x).collect()
-        lat_list = df.select('LAT').rdd.flatMap(lambda x: x).collect()
-        lon_list = df.select('LON').rdd.flatMap(lambda x: x).collect()
-        for i in range(len(lat_list)):
-            coord = ', '.join([str(lon_list[i]), str(lat_list[i])])
-            coord_list.append(coord)
-
+        for i in add_list:
+            sp_add = str(i).split()[0:4]
+            sp_add = ' '.join(sp_add)
+            addr_split_list.append(sp_add)
+        
+        gu_list = []
         dong_list = []
         client_id = ""
         client_secret = ""
-        output = "json"
-        orders = 'roadaddr'
-        for c in coord_list:
+        for addr in addr_split_list:
             try:
-                url = f"https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?coords={c}&output={output}&orders={orders}"
+                url = f"https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query={addr}"
                 headers = {'X-NCP-APIGW-API-KEY-ID': client_id,
-                        'X-NCP-APIGW-API-KEY': client_secret
-                        }
+                        'X-NCP-APIGW-API-KEY': client_secret}
 
                 r = requests.get(url, headers=headers)
 
                 if r.status_code == 200:
                     try:
                         data = r.json()
-                        dong = data['results'][0]['region']['area3']['name']
-                        dong_list.append(str(dong))
+                        old_add = data['addresses'][0]['jibunAddress']
+                        dong = old_add.split()[0:4][2]
+                        dong_list.append(dong)
                     except:
                         dong_list.append('-')
                 else :

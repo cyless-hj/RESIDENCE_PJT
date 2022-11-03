@@ -32,6 +32,7 @@ class ChildMedTransformer:
 
             tmp_df = tmp_df.union(cd_df)
 
+
         save_data(DataWarehouse, tmp_df, 'CHILD_MED')
 
     @classmethod

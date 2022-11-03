@@ -149,4 +149,6 @@ class CafeTransformer:
                                  .option("inferSchema", "true") \
                                  .csv("s3a://residencebucket/raw_data/CAFE/CAFE.csv")
                                  
+        df_cafe = df_cafe.filter((col('ADD_STR') != '') | col('ADD_STR').contains('None') | col('ADD_STR').contains('NULL'))
+        df_cafe = df_cafe.filter(~col('ADD_STR').contains('?'))
         return df_cafe

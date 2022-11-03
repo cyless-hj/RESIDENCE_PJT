@@ -1,13 +1,13 @@
 import unittest
-from datajob.etl.transform.academy import AcademyTransformer
+from datajob.etl.transform.academy_transform import AcademyTransformer
 from datajob.etl.transform.animal_hospital_transform import AnimalTransformer
 from datajob.etl.transform.area_dong_transform import AreaDongTransformer
-from datajob.etl.transform.area_gu import AreaGuTransformer
+from datajob.etl.transform.area_gu_transform import AreaGuTransformer
 from datajob.etl.transform.bike_transform import BikeTransformer
 from datajob.etl.transform.bus_transform import BusTransformer
 from datajob.etl.transform.cafe_transform import CafeTransformer
-from datajob.etl.transform.car_sharing import CarSharingTransformer
-from datajob.etl.transform.category import CategoryTransformer
+from datajob.etl.transform.car_sharing_transform import CarSharingTransformer
+from datajob.etl.transform.category_transform import CategoryTransformer
 from datajob.etl.transform.cctv_transform import CctvTransformer
 from datajob.etl.transform.child_med_transform import ChildMedTransformer
 from datajob.etl.transform.con_store_transform import ConstoreTransformer
@@ -18,7 +18,7 @@ from datajob.etl.transform.gym_transform import GymTransformer
 from datajob.etl.transform.kids_cafe_transform import KidsCafeTransformer
 from datajob.etl.transform.kindergarten_transform import KinderTransformer
 from datajob.etl.transform.leisure_transform import LeisureTransformer
-from datajob.etl.transform.loc import LocTransformer
+from datajob.etl.transform.loc_transform import LocTransformer
 from datajob.etl.transform.mcdonalds_transform import McdonaldsTransformer
 from datajob.etl.transform.noise_vibration_transform import NoiseVibrationTransformer
 from datajob.etl.transform.popu_dong_transform import PopuDongTransformer
@@ -27,6 +27,7 @@ from datajob.etl.transform.safe_delivery_transform import SafeTransformer
 from datajob.etl.transform.sports_transform import SportsTransformer
 from datajob.etl.transform.starbucks_transform import StarbucksTransformer
 from datajob.etl.transform.subway_transform import SubwayTransformer
+from datajob.etl.transform.vegan_transform import VeganTransformer
 
 
 class MTest(unittest.TestCase):
@@ -113,6 +114,11 @@ class MTest(unittest.TestCase):
     
     def test28(self):
         SportsTransformer.transform()
+
+    def test29(self):
+        VeganTransformer.transform()
+
+        
 
 
 if __name__ == "__main__":
