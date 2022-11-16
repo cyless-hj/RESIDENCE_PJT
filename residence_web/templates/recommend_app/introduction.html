@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+  #introtitle{
+    font-weight: 600;
+    margin-top : 35px;
+    font-size : 50px;
+  }
+  h1{
+
+    font-weight:400;
+    font-size : 40px;
+  }
+  #rankingimg{
+    /*margin-top: */
+    padding-top:0;
+    margin-bottom : 60px;
+
+
+  }
+
+
+</style>
+<div class="py-5 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 id="introtitle">취향에 맞게 원하는 동네를 찾아드려요!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-4 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 p-3">
+          <div style="height:450px" class="card">
+            <div class="card-body p-4"> <img class="img-fluid d-block mb-3 mx-auto" src="{% static 'img/address.png' %}" width="200">
+              <h1>동네추천</h1>
+              <p class="mb-0">선호하는 요소를 선택하면<br>취향에 맞게 동네를 추천합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 p-3 col-md-6">
+          <div style="height:450px" class="card">
+            <div class="card-body p-4"> <img class="img-fluid d-block mb-3  mx-auto" src="{% static 'img/search (1).png' %}" width="150">
+              <h1 class="mt-6">비슷한<br>동네 찾기</h1>
+              <p class="mb-0 ">현재 살고 있는 동네와<br>비슷한 동네를 찾아줍니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 p-3 col-md-6">
+          <div style="height:450px" class="card">
+            <div class="card-body p-4"> <img class="img-fluid d-block mx-auto   " id="rankingimg" src="{% static 'img/rank (1).png' %}" width="200">
+              <h1 class="">카테고리<br>순위</h1>
+              <p class="mb-0 ">요소를 카테고리별로 분류해서<br>각각의 순위를 보여줍니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

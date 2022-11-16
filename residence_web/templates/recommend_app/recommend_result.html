@@ -1,0 +1,357 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="../static/css/style.css" type="text/css">
+<link rel="stylesheet" href="../static/css/aquamarine.scss" type="text/css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+    function loadingProcess() {
+        console.log("test");
+        var maskHeight = $(document).height();
+    var maskWidth  = window.document.body.clientWidth;
+console.log(maskWidth, maskHeight);
+    //화면에 출력할 마스크를 설정해줍니다.
+    var mask       = "<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:none; left:0; top:0;'></div>";
+    var loadingImg = '';
+
+    loadingImg += "<div id='loadingImg'>";
+    loadingImg += " <img src='../../static/img/loading.gif' style='position: relative; display: block; margin: 0px auto;'/>";
+    loadingImg += "</div>";
+    console.log("test2");
+    //화면에 레이어 추가
+    $('body')
+        .append(mask)
+        .append(loadingImg)
+
+    //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채웁니다.
+    $('#mask').css({
+            'width' : maskWidth
+            , 'height': maskHeight
+            , 'opacity' : '0.3'
+    });
+
+    //마스크 표시
+    $('#mask').show();
+
+    //로딩중 이미지 표시
+    $('#loadingImg').show();
+    }
+
+    function closeLoadingWithMask() {
+    $('#mask, #loadingImg').hide();
+    $('#mask, #loadingImg').remove();
+}
+</script>
+
+<style>
+    	.tiles {
+
+		display: flex;
+
+		flex-wrap: wrap;
+		postiion: relative;
+		margin: -2.5em 0 0 -2.5em;
+	}
+.tiles article {
+
+			transition: transform 0.5s ease, opacity 0.5s ease;
+			position: relative;
+			width: calc(33.33333% - 2.5em);
+			margin: 2.5em 0 0 2.5em;
+		}
+
+
+.vertical {
+    border-left: 0.5px solid black;
+    height: 700px;
+    position:relative;
+    top : 14%;
+    left: 125%;
+    width : 2px;
+    margin : -100px;
+}
+.verticalright {
+    border-left: 0.5px solid black;
+    height: 700px;
+    position:relative;
+    top : -1%;
+    right: 2%;
+    width : 2px;
+}
+#similarscore{
+    font-size : 20px;
+    position : relative;
+    top : -165%;
+    left : 36%;
+}
+
+#유사도{
+
+    font-size : 12px;
+    position : relative;
+    top : -159%;
+    left : 39%;
+
+
+}
+
+
+
+
+
+</style>
+
+{% for value in sim_list %}
+    <span>{{value}}</span>
+{% endfor %}
+
+
+
+
+
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"><div class = "vertical"></div></div>
+        <div class="col-md-4 ">
+          <h1 class="text-center">추천하는 동네는... </h1>
+          <section class="tiles d-flex justify-content-center" style="width : 90%; position : relative; left : 12%;">
+              {% for tag in cluster_data.tags %}
+
+                {{tag}}&nbsp;
+              {% endfor %}
+          </section>
+          <h2 class="text-center" id="clustertitle"> {{cluster_data.title}} <span class="lastword">입니다.</span></h2>
+        </div>
+        <div class="col-md-4"><div class = "verticalright"></div></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="d-flex justify-content-center" style="width: 280px; height: 280px; position :relative; left : 6%; top : -180%; margin-top : -6%; font-family: 'Pretendard-Regular'; font-size : 10px;">
+    <!--차트가 그려질 부분-->
+                <canvas class="d-flex justify-content-center" id="myChart{{forloop.counter}}"></canvas>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+
+    <div class="py-5" >
+
+        <div class="container d-flex justify-content-center">
+
+            <div class="row w-50" id="resulticon">
+                <div class="col-md-2">
+
+
+                </div>
+            {% for gu,dong,code,sim in result %}
+
+                <div class="col-md-2  mx-2 d-flex justify-content-center" id="resultdong">
+                    <form action="{% url 'recommend_app:dongDetail' %}" method="post">
+                    {% csrf_token %}
+                    <button onclick ="loadingProcess()" class="resulttobutton btn " name="dong_info" id="{{ forloop.counter }}dong"  value="{{gu}}@{{dong}}@{{code}}@{{graph_data}}@{{forloop.counter0}}">
+                        <img src="../../static/img/home{{ forloop.counter }}.png" width="60"><br>{{gu}} {{dong}}</br>
+                    </button>
+                    <h4 id="유사도">유사도</h4>
+                    <h4 id="similarscore">{{sim}}</h4>
+                    </form>
+                </div>
+            {% endfor %}
+
+
+
+                <div class="col-md-2">
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="py-5" >
+
+
+
+<!--    <div class="container">-->
+<!--        <div class="row" >-->
+<!--        {% for gu,dong,code in result %}-->
+<!--            <div class="col-md-4" id="resultdong">-->
+<!--                <form action="{% url 'recommend_app:dongDetail' %}" method="post">-->
+<!--                {% csrf_token %}-->
+<!--                <button onclick ="loadingProcess()" class="resulttobutton btn " name="dong_info"   value="{{gu}} {{dong}} {{code}}">-->
+<!--                    <img src="../../static/img/home{{ forloop.counter }}.png" width="60">{{gu}} {{dong}}-->
+<!--                </button>-->
+
+<!--                </form>-->
+
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--            <div class="col-md-6"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="contianer">
+
+    </div>
+
+<style>
+    #resulticon{
+        width: 120px;
+        margin-top : 10%;
+    }
+    h4{
+
+        font-family: 'Pretendard-Regular';
+        font-size : 1px;
+
+
+    }
+
+    #resultcontainer{
+        width:1280px;
+        height:100px;
+
+        font-family: 'Pretendard-Regular';
+        position : relative;
+        left : -10px;
+        top : 100%;
+
+
+    }
+    .resulttobutton{
+        font-family: 'Pretendard-Regular';
+        font-weight: 400;
+        font-size : 15px;
+        color : primary;
+        margin-bottom: 100px;
+        position : relative;
+        left : 3px;
+        top : -70%;
+
+
+    }
+
+    h1{
+        font-family: 'Pretendard-Regular';
+        position : relative;
+        top : 6%;
+        left: -2%;
+
+        font-size : 20px;
+        font-weight : 400;
+
+    }
+
+    .lastword{
+        font-weight : 400;
+        font-size : 18px;
+        color:#151515;
+    }
+
+
+
+
+    #clustertitle{
+        font-family: 'Pretendard-Regular';
+        font-size : 27px;
+        font-weight : 600;
+        color : #12bbad;
+        position: relative;
+        top : 5%;
+        left : -3%;
+
+
+    }
+    .tiles{
+        font-family: 'Pretendard-Regular';
+        position :relative;
+        top : 16%;
+        left : 12%;
+        font-weight : 600;
+
+    }
+
+
+    #resultdong{
+
+        font-family: 'Pretendard-Regular';
+        font-size:60px;
+        position : relative;;
+        left : -1%;
+        top : -165%;
+    }
+
+</style>
+
+
+<script>
+  var replace_str = "{{graph_data}}".replaceAll("&#x27;","\"");
+  var graph_data = JSON.parse(replace_str);
+  console.log(graph_data);
+
+var chart_name= "myChart"
+var marksCanvas = document.getElementById(chart_name);
+
+var marksData = {
+  labels: ["교통", "치안", "건강", "편의", "교육", "육아"],
+  datasets: [{
+    data: graph_data[0].slice(0,6),
+    fill: true,
+    backgroundColor: 'rgba(18, 187, 173, 0.2)',
+    borderColor: 'rgb(18, 187, 173)',
+    pointBackgroundColor: 'rgb(18, 187, 173)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(18, 187, 173)'
+  }, {
+    data: graph_data[1].slice(0,6),
+    fill: true,
+    backgroundColor: 'rgba(79, 112, 206,0.2)',
+    borderColor: 'rgb(79, 112, 206)',
+    pointBackgroundColor: 'rgb(79, 112, 206)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(79, 112, 206)'
+  }, {
+    data: graph_data[2].slice(0,6),
+    fill: true,
+    backgroundColor: 'rgba(220, 53, 69,0.2)',
+    borderColor: 'rgb(220, 53, 69)',
+    pointBackgroundColor: 'rgb(220, 53, 69)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(220, 53, 69)'
+  }]
+
+};
+
+var radarChart = new Chart(marksCanvas, {
+  type: 'radar',
+  data: marksData,
+  options: {
+    legend: {
+        display: false
+        },
+    scale: {
+        ticks: {
+        callback: function() {return ""},
+        }
+
+    }
+}
+
+
+ });
+
+
+</script>
+
+
+
+{% endblock %}

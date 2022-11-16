@@ -1,0 +1,260 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="../static/css/style.css" type="text/css">
+
+<style>
+
+.list-group-item {
+user-select: none;
+}
+
+.list-group input[type="checkbox"] {
+display: none;
+}
+
+/*커서*/
+.list-group input[type="checkbox"] + .list-group-item {
+cursor: pointer;
+}
+
+/*내부아이템*/
+.list-group input[type="checkbox"] + .list-group-item:before {
+content: "\2713";
+color: transparent;
+font-weight: bold;
+margin-right: 1em;
+}
+
+/*선택 시 컬러*/
+.list-group input[type="checkbox"]:checked + .list-group-item {
+background-color: #12bbad;
+color: #FFF;
+}
+
+.list-group input[type="radio"] {
+display: none;
+}
+
+.list-group input[type="checkbox"]:checked + .list-group-item:before {
+color: inherit;
+}
+
+
+#star5{
+  font-size : 25px;
+  font-weight : 600;
+
+  /*margin-left : 10%;*/
+}
+
+#buttongroupstar{
+  margin-top : -10%;
+  margin-bottom : -3%;
+
+
+
+
+}
+
+#선호도제목{
+  margin-right : 1%;
+  font-weight : 600;
+
+}
+#dongsubmit{
+  margin-top : -30%;
+  position :relative;
+  left : 1%;
+}
+#listgrouprow{
+  margin-top:-8%;
+
+
+}
+
+</style>
+
+
+
+<form class="form-horizontal" action="#" method="POST"> 
+  {% csrf_token %}
+  <div class="py-5 text-center ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 id="선호도제목" style="font-family: 'Pretendard-Regular'; font-size: 20px; ">선호도에 따라 6가지 요소에 점수를 주세요</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="py-5 ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 d-flex justify-content-center" id="buttongroupstar">
+          <ul class="list-group list-group-flush btn-group-sm  " id="star5" >
+            <li class="list-group-item"><i class="fa text-primary mr-2 fa-car"></i>교통</li>
+            <div class="btn-group btn-group-toggle " data-toggle="buttons">
+              <label class="btn btn-primary px-4 active">
+                <input type="radio" name="transportation"  value="1" checked=""> 1점 </label>
+              <label class="btn btn-primary px-4 ">
+                <input type="radio" name="transportation"  value="2"> 2점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="transportation"  value="3"> 3점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="transportation"  value="4"> 4점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="transportation"  value="5"> 5점 </label>
+            </div>
+            <li class="list-group-item"><i class="fa text-primary mr-2 fa-camera"></i>&nbsp;치안</li>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary px-4 active">
+                <input type="radio" name="safety" id="safety" value="1" checked=""> 1점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="safety" id="safety" value="2"> 2점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="safety" id="safety" value="3"> 3점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="safety" id="safety" value="4"> 4점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="safety" id="safety" value="5"> 5점 </label>
+            </div>
+            <li class="list-group-item"><i class="fa text-primary mr-2 fa-heartbeat"></i>&nbsp;건강</li>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary px-4 active">
+                <input type="radio" name="medical" id="medical" value="1" checked=""> 1점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="medical" id="medical" value="2"> 2점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="medical" id="medical" value="3"> 3점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="medical" id="medical" value="4"> 4점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="medical" id="medical" value="5"> 5점 </label>
+            </div>
+            <li class="list-group-item"><i class="fa text-primary mr-2 fa-shopping-bag"></i>&nbsp;편의시설</li>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary px-4 active">
+                <input type="radio" name="facilities" id="facilities" value="1" checked=""> 1점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="facilities" id="facilities" value="2"> 2점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="facilities" id="facilities" value="3"> 3점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="facilities" id="facilities" value="4"> 4점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="facilities" id="facilities" value="5"> 5점 </label>
+            </div>
+            <li class="list-group-item"><i class="fa text-primary mr-1 fa-graduation-cap"></i>&nbsp;교육</li>
+            <div class="btn-group btn-group-toggle " data-toggle="buttons">
+              <label class="btn btn-primary px-4 active">
+                <input type="radio" name="education" id="education" value="1" checked=""> 1점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="education" id="education" value="2"> 2점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="education" id="education" value="3"> 3점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="education" id="education" value="4"> 4점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="education" id="education" value="5"> 5점 </label>
+            </div>
+            <li class="list-group-item"><i class="fa fa-child text-primary mr-3 fa-child-cap"></i>육아</li>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary px-4 active">
+                <input type="radio" name="parenting" id="parenting" value="1" checked=""> 1점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="parenting" id="parenting" value="2"> 2점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="parenting" id="parenting" value="3"> 3점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="parenting" id="parenting" value="4"> 4점 </label>
+              <label class="btn btn-primary px-4">
+                <input type="radio" name="parenting" id="parenting" value="5"> 5점 </label>
+            </div>
+          </ul>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+  <hr class="mt-0" style="border: solid 1px #807c7c; width : 26%; margin-bottom : 3%;">
+  <div class="py-5" >
+    <div class="container">
+      <div class="row" id="listgrouprow">
+        <div class="col-md-3"></div>
+        <div class="col-md-3" style="margin-left : 2.5%; margin-right : -7.2%;">
+          <div class="list-group" style="margin-left : 15%; margin-right : 5%; " >
+            <input type="hidden" name="noise_vibration_num" value="0">
+            <input type="hidden" name="mz_pop_cnt" value="0">
+            <input type="hidden" name="starbucks_num" value="0">
+            <input type="hidden" name="mc_num" value="0">
+            <input type="hidden" name="gym_num" value="0">
+            <input type="hidden" name="golf_num" value="0">
+            <input type="hidden" name="safe_dlvr_num" value="0">
+            <input type="checkbox" name="mz_pop_cnt" value="1" id="mz_pop_cnt">
+            <label class="list-group-item"  for="mz_pop_cnt" ><img src="../../static/img/free-icon-girl-4440876.png" > 젊은 동네</label>
+            <input type="checkbox" name="starbucks_num" value="1" id="starbucks_num">
+            <label class="list-group-item" for="starbucks_num"><img src="../../static/img/free-icon-starbucks-5977591.png"> 스세권</label>
+            <input type="checkbox" name="mc_num" value="1" id="mc_num">
+            <label class="list-group-item" for="mc_num"><img src="../../static/img/free-icon-mcdonalds-732217.png"> 맥세권</label>
+            <input type="checkbox" name="gym_num" value="1" id="gym_num">
+            <label class="list-group-item" for="gym_num"><img src="../../static/img/free-icon-exercise-2928160.png"> 헬스</label>
+            <input type="checkbox" name="golf_num" value="1" id="golf_num">
+            <label class="list-group-item" for="golf_num"><img src="../../static/img/free-icon-golf-5929982.png"> 골프</label>
+            <input type="checkbox" name="safe_dlvr_num" value="1" id="safe_dlvr_num">
+            <label class="list-group-item" for="safe_dlvr_num"><img src="../../static/img/free-icon-courier-5310800.png"> 안심택배</label>
+            <input type="checkbox" name="noise_vibration_num" value="1" id="noise_vibration_num">
+            <label class="list-group-item" for="noise_vibration_num"><img src="../../static/img/shh.png" style="width : 11%;"> 조용한 동네</label>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="list-group" style="margin-left : 15%; margin-right : 5%;">
+            <input type="hidden" name="leisure_num" value="0">
+            <input type="hidden" name="park_num" value="0">
+            <input type="hidden" name="ani_hspt_num" value="0">
+            <input type="hidden" name="coliving_num" value="0">
+            <input type="hidden" name="vegan_cnt" value="0">
+            <input type="hidden" name="car_shr_num" value="0">
+            <input type="hidden" name="kids_num" value="0">
+            <input type="checkbox" name="leisure_num" value="1" id="leisure_num">
+            <label class="list-group-item" for="leisure_num"><img src="../../static/img/free-icon-bowling-ball-3390655.png"> 실내레저</label>
+            <input type="checkbox" name="park_num" value="1" id="park_num">
+            <label class="list-group-item" for="park_num"><img src="../../static/img/free-icon-park-2841090.png"> 공원</label>
+            <input type="checkbox" name="ani_hspt_num" value="1" id="ani_hspt_num">
+            <label class="list-group-item" for="ani_hspt_num"><img src="../../static/img/free-icon-puppy-1959967.png"> 반려동물</label>
+            <input type="checkbox" name="coliving_num" value="1" id="coliving_num">
+            <label class="list-group-item" for="coliving_num"><img src="../../static/img/free-icon-house-4820648.png"> 쉐어하우스</label>
+            <input type="checkbox" name="vegan_cnt" value="1" id="vegan_cnt">
+            <label class="list-group-item" for="vegan_cnt"><img src="../../static/img/free-icon-vegan-4773476.png"> 채식</label>
+            <input type="checkbox" name="car_shr_num" value="1" id="car_shr_num">
+            <label class="list-group-item" for="car_shr_num"><img src="../../static/img/free-icon-toy-car-3094177.png"> 카쉐어링</label>
+            <input type="checkbox" name="kids_num" value="1" id="kids_num">
+            <label class="list-group-item" for="kids_num"><img src="../../static/img/free-icon-baby-girl-3320134.png"> 키즈카페</label>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <input type="hidden" name="username" id="username" value="{{user.username}}">
+          <button type="submit" class="btn btn-outline-primary btn-block" href="#" id="dongsubmit">동네 찾기 </button>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+
+</form>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+{% endblock %}

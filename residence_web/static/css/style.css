@@ -1,0 +1,206 @@
+
+.rate {
+    float: left;
+    /*height: 100px;*/
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+
+.flex-container{
+    display: flex;
+    min-height: 100vh;
+    width: min(100%, 1000px);
+    margin-inline: auto;
+    padding-inline: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.ques1 {
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    top : 130px;
+    left : 200px;
+    width: 10000%;
+    height: 1000px;
+    position: relative;
+    text-align: center;
+    color: #353535;
+    font-size: 50px;
+
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+.background_img {
+margin-top: 90px;
+background-image: url(../static/img/09238DF7-7E48-4185-A9AD-0BC1C40767DD_1_201_a.jpeg);
+background-position: top left;
+background-size: 100%;	background-repeat: repeat;
+}
+
+
+
+h4{
+font-family: 'Pretendard-Regular';
+margin-right: auto;
+
+/*padding-top: 120px;*/
+font-weight: 700;
+font-size : 50px;
+}
+#select_box {
+font-family: 'Pretendard-Regular';
+font-weight: 300;
+font-size: 20px;
+}
+
+.form-control{
+margin-top: -5px;
+margin-bottom : 10px;
+}
+.form-group{
+margin-top: 15px;
+/*margin-bottom : 10px;*/
+}
+
+#genderbutton{
+margin-top: -30px;
+margin-bottom : 10px;
+
+}
+#age_button{
+margin-top: -25px;
+margin-bottom : 10px;
+
+}
+
+.indexsubmit_button{
+/*margin-top: -10px;*/
+margin-bottom : -10px;
+margin-top : -10px;
+
+}
+
+/*추천페이지*/
+
+.container{
+    font-family: 'Pretendard-Regular';
+
+
+}
+
+#선호도제목{
+    margin-top : -1% ;
+
+}
+
+#allfeatuers{
+    margin-top : -8% ;
+
+
+
+}
+
+
+
+.rate {
+    float: left;
+    /*height: 100px;*/
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+
+.flex-container{
+    display: flex;
+    min-height: 100vh;
+    width: min(100%, 1000px);
+    margin-inline: auto;
+    padding-inline: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.ques1 {
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    top : 130px;
+    left : 200px;
+    width: 10000%;
+    height: 1000px;
+    position: relative;
+    text-align: center;
+    color: #353535;
+    font-size: 50px;
+
+}
+

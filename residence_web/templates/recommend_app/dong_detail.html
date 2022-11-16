@@ -1,0 +1,487 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<style>
+  .chartbar{
+    position : relative;
+    margin-top : 5%;
+    /*height : 500px;*/
+  }
+  #textbox{
+
+
+  }
+
+  .wrap_map{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    justify-content: flex-end;
+
+  }
+
+  .wrap_info{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #map{
+    top:50px;
+    width:65%;
+    height:33vh;
+    width: 90%;
+  }
+
+  #yourdong{
+    position : relative;
+    font-size : 25px;
+    font-weight : 400;
+
+
+
+  }
+  #dongnamedetail{
+    position : relative;
+    font-size : 70px;
+    font-weight : 400;
+    text-align: center;
+
+
+  }
+
+  #featureline{
+
+  }
+
+  .verticalright {
+    border-left: 0.5px solid black;
+    height: 34vh;
+    width : 2px;
+  }
+
+
+
+</style>
+
+
+
+
+
+<div class="pt-5 d-flex justify-content-center">
+  <div class="" >
+    <div class="row" id="textbox" >
+      <div class="col-md-14 col-12 border border-primary p-0" id="featureline">
+        <ul class="nav nav-pills m-auto font-weight-bold " id="navbox"
+          style="position : relative;  left:0.5%; top :5%; font-size : 12px;  ">
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabone"
+              data-query="transportation">교통</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="safety">치안</a> </li>
+          <!-- <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabthree"
+              data-query="noise_vibration_num">조용한 동네</a> </li> -->
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="leisure_num">실내레저시설</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="gym_num">헬스장</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="golf_num">골프장</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="park_num">공원</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="facilities">편의시설</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="medical">의료시설</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="starbucks_num">스타벅스</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="mc_num">맥도날드</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="vegan_cnt">채식</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="coliving_num">코리빙</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="education">교육</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="parenting">육아</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="kids_num">키즈카페</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="ani_hspt_num">동물병원</a> </li>
+          <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="safe_dlvr_num">안심택배</a> </li>
+          <li class="nav-item"> <a class="nav-link infra" href="" data-toggle="pill" data-target="#tabtwo"
+              data-query="car_shr_num">나눔카</a> </li>
+          <!-- <li class="nav-item"> <a href="" class="nav-link infra" data-toggle="pill" data-target="#tabtwo"
+              data-query="mz_pop_cnt">MZ세대 인구수</a> </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="row " id="textbox"  style="transform: translateY(65px); height:40vh">
+      <div class="col-md-6 col-6 wrap_info">
+        <span class="text-dark" id="yourdong">당신의 동네인</span>
+        <span class="text-primary " id="dongnamedetail">{{data.dong_name}}</span>
+        <div class="chartbar" >
+          <canvas class="d-flex justify-content-center" id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="col-md-1" style="display: flex;  flex-direction: column; justify-content: center;">
+        <div class="verticalright"></div>
+      </div>
+      <div class="col-md-5 col-6 wrap_map">
+          <div id="map" style=""></div>
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=liyb9vr43o"></script>
+
+<script>
+
+  const dongLat = '{{ dong_coordinate.lat }}'
+  const dongLon = '{{ dong_coordinate.lon }}'
+  console.log(typeof(dongLat))
+  console.log(typeof(dongLon))
+  console.log(dongLat)
+  console.log(dongLon)
+  var HOME_PATH = window.HOME_PATH || '.';
+  var markers = [];
+  var infowindows = [];
+
+  map = new naver.maps.Map('map', {
+    // center: new naver.maps.LatLng(36.31175, 127.3754709),
+    center: new naver.maps.LatLng(parseFloat(dongLat), parseFloat(dongLon)),
+    zoom: 15
+  });
+
+  const dongName = '{{ data.dong_name }}'
+  const guName = '{{  data.gu_name  }}'
+
+  var replace_str = "{{infra}}";
+  //var infra_data = JSON.parse(replace_str);
+
+  const urlEncoder = paramObj => {
+    let arr = [];
+
+    for (key in paramObj) {
+      let param = key + '=' + encodeURIComponent(paramObj[key]);
+      arr.push(param);
+    }
+    return arr.join('&'); //a=b&가=나&t=q
+  }
+
+  async function postData(url = '', data = {}) {
+    // 옵션 기본 값은 *로 강조
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE 등
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data), // body의 데이터 유형은 반드시 "Content-Type" 헤더와 일치해야 함
+    });
+    return response.json(); // JSON 응답을 네이티브 JavaScript 객체로 파싱
+  }
+
+
+  async function getData(url = '', data = {}, header = { 'Content-Type': 'application/json' }) {
+
+    url += '?' + urlEncoder(data)
+
+    const response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors', // no-cors, *cors, same-origin
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: header,
+    });
+
+    return response.json();
+  }
+
+  function drawMarker(names, lats, lons, cate) {
+
+    markers = [];
+    infowindows = [];
+
+    if (cate == 'transportation'){
+      var icon = {
+        // url: '../../static/img/free-icon-exercise-2928160.png',
+        content: '<i class="fa text-primary mr-2 fa-car">',
+        size: new naver.maps.Size(22, 35),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(11, 35)
+      };
+      }else if (cate == 'safety'){
+        var icon = {
+          // url: '../../static/img/free-icon-exercise-2928160.png',
+          content: '<i class="fa text-primary mr-2 fa-camera">',
+          size: new naver.maps.Size(22, 35),
+          origin: new naver.maps.Point(0, 0),
+          anchor: new naver.maps.Point(11, 35)
+        };
+      }else if (cate == 'medical'){
+        var icon = {
+            // url: '../../static/img/free-icon-exercise-2928160.png',
+            content: '<i class="fa text-primary mr-2 fa-heartbeat">',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'facilities'){
+        var icon = {
+            // url: '../../static/img/free-icon-exercise-2928160.png',
+            content: '<i class="fa text-primary mr-2 fa-shopping-bag">',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'education'){
+        var icon = {
+            // url: '../../static/img/free-icon-exercise-2928160.png',
+            content: '<i class="fa text-primary mr-2 fa-graduation-cap">',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      
+      }else if (cate == 'parenting'){
+        var icon = {
+            content: '<i class="fa fa-child text-primary mr-2">',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'starbucks_num'){
+        var icon = {
+            url: '../../static/img/free-icon-starbucks-5977591.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'mc_num'){
+        var icon = {
+            url: '../../static/img/free-icon-mcdonalds-732217.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'gym_num'){
+        var icon = {
+            url: '../../static/img/free-icon-exercise-2928160.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'golf_num'){
+        var icon = {
+            url: '../../static/img/free-icon-golf-5929982.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+
+      }else if (cate == 'safe_dlvr_num'){
+        var icon = {
+            url: '../../static/img/free-icon-courier-5310800.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'leisure_num'){
+        var icon = {
+            url: '../../static/img/free-icon-bowling-ball-3390655.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'park_num'){
+        var icon = {
+            url: '../../static/img/free-icon-park-2841090.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'ani_hspt_num'){
+        var icon = {
+            url: '../../static/img/free-icon-puppy-1959967.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'coliving_num'){
+        var icon = {
+            url: '../../static/img/free-icon-house-4820648.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'vegan_cnt'){
+        var icon = {
+            url: '../../static/img/free-icon-vegan-4773476.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'car_shr_num'){
+        var icon = {
+            url: '../../static/img/free-icon-toy-car-3094177.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }else if (cate == 'kids_num'){
+        var icon = {
+            url: '../../static/img/free-icon-baby-girl-3320134.png',
+            size: new naver.maps.Size(22, 35),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(11, 35)
+          };
+      }
+
+    names.forEach((e, i) => {
+      // var icon = {
+      //   // url: '../../static/img/free-icon-exercise-2928160.png',
+      //   content: '<i class="fa text-primary mr-2 fa-car">',
+      //   size: new naver.maps.Size(22, 35),
+      //   origin: new naver.maps.Point(0, 0),
+      //   anchor: new naver.maps.Point(11, 35)
+      // };
+
+      markers.push(new naver.maps.Marker({
+        map: map,
+        position: new naver.maps.LatLng(lats[i], lons[i]),
+        icon: icon
+      }))
+
+      infowindows.push(new naver.maps.InfoWindow({
+        content: [
+          '<div class="iw_inner">',
+          '   <h3>' + names[i] + '</h3>',
+          '</div>'
+        ].join(''),
+        maxWidth: 350,
+        backgroundColor: "#EAEAEA",
+        borderColor: "#12BBAD",
+        borderWidth: 5,
+        anchorSize: new naver.maps.Size(20, 24),
+        anchorSkew: false,
+        anchorColor: "#EAEAEA",
+        pixelOffset: new naver.maps.Point(20, -20)
+      }));
+    });
+
+    for (let i = 0; i < markers.length; i++) {
+      naver.maps.Event.addListener(markers[i], "click", function (e) {
+        if (infowindows[i].getMap()) {
+          infowindows[i].close();
+        } else {
+          infowindows[i].open(map, markers[i]);
+        }
+      });
+    }
+  }
+
+  async function callbackInfra(ev) {
+    ev.preventDefault();
+    for (let i = 0; i < markers.length; i++) {
+      markers[i].setMap(null)
+      if (infowindows[i].getMap()) {
+          infowindows[i].close();
+        } else {
+        }
+    }
+    console.dir(ev.target.dataset)
+    cate = ev.target.dataset.query;
+    reqParam = { "dong_name": dongName, "gu_name": guName, "cate": cate }
+    res = await getData('/facility_info', reqParam);
+    drawMarker(res.name, res.lat, res.lon, res.category)
+
+  }
+
+  document.querySelectorAll('.infra').forEach(e => {
+    e.addEventListener('click', callbackInfra)
+  })
+
+
+</script>
+
+
+<script>
+  var replace_str = "{{graph_key}}".replaceAll("&#x27;","\"");
+  var graph_key = JSON.parse(replace_str);
+
+  var replace_str = "{{graph_value}}".replaceAll("&#x27;","\"");
+  var graph_value = JSON.parse(replace_str);
+
+    var replace_str = "{{graph_mean_dict}}".replaceAll("&#x27;","\"");
+  var graph_mean_dict = JSON.parse(replace_str);
+  console.log(graph_mean_dict);
+
+  var mean_arr = [];
+  for(var i=0;i<6;i++){
+    mean_arr.push(graph_mean_dict[graph_key[i]]);
+  }
+
+  console.log(mean_arr);
+  var chart_name= "myChart"
+  var marksCanvas = document.getElementById(chart_name);
+  console.log(marksCanvas);
+  var marksData = {
+   labels: graph_key.slice(0,6),
+  datasets: [{
+    label: '{{data.dong_name}}',
+    data: graph_value.slice(0,6),
+    backgroundColor: 'rgba(255, 205, 86, 0.2)',
+    borderColor: 'rgb(255, 205, 86)',
+    borderWidth: 1
+  },{
+    label: '서울 전체 평균',
+    data: mean_arr,
+    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    borderColor: 'rgb(75, 192, 192)',
+    borderWidth: 1
+  }]
+};
+
+var barChart = new Chart(marksCanvas, {
+  type: 'bar',
+  data: marksData,
+  options: {
+     legend: {
+        display: true
+     },
+     tooltips: {
+        enabled: false
+     },
+     scales: {
+        yAxes: [{
+            ticks: {
+                display: false
+            }
+        }]
+    }
+    }
+ });
+
+
+</script>
+
+
+
+
+
+{% endblock %}

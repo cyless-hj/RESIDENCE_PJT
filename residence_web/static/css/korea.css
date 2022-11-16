@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.container {
+	position: relative;
+	margin: 50px auto 30px;
+	width: 700px;
+	min-height: 700px;
+}
+
+#container {
+    width: 700px;
+    min-height: 700px;
+    float: left;
+    margin: 15px 35px;
+    fill: #333333;
+}
+
+.background {
+    fill: #67cccc;
+    pointer-events: all;
+}
+
+#map {
+	border: 1px solid #ddd;
+}
+
+#states path {
+    fill: #ccece6;
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+#states path:hover {
+    fill: #4bedf3;
+}
+
+#states .active {
+    fill: #cb54db;
+}
+
+#states .activeDetail {
+    fill: #4bf391;
+}
+
+#states path {
+    cursor: pointer;
+}
+
+#states text {
+    cursor: pointer;
+    font-size: 7px;
+    fill: #290909;
+}

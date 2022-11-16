@@ -1,0 +1,18 @@
+{% if form.errors %}
+        <!-- 필드 오류 출력 -->
+          {% for field in form %} <!--  필드 개수만큼 반복 -->
+            {% for error in field.errors %} <!-- 에러코드가 있으면 출력 -->
+            <div class ="alert alert-danger" role="alert">
+              <strong>{{field.label}}</strong> <!-- 에러가 난 필드명 출력 -->
+                {{ error }}
+            </div>
+            {% endfor %}
+          {% endfor %}
+
+          <!-- 넌 필드 오류 출력 -->
+          {% for error in form.non_field_errors %}
+            <div class ="alert alert-danger" role="alert">
+              <strong>{{error}}</strong> <!-- 에러가 난 필드명 출력 -->
+            </div>
+          {% endfor %}
+{% endif %}

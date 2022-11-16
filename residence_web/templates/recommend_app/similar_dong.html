@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="../static/css/style.css" type="text/css">
+
+
+<style>
+#container {
+    /*width: 1000px;*/
+    /*height: 1000px;*/
+    /*float: left;*/
+    /*margin-left : 150px;*/
+    /*padding-top : 50px;*/
+    /*fill: #000000;*/
+}
+
+.background {
+    fill: #ffffff;
+    pointer-events: all;
+}
+.map {
+
+    width: 500px;
+    height: 500px;
+}
+
+#states path {
+    fill: #ccece6;
+    stroke: #fff;
+    stroke-width: 2.5px;
+
+}
+
+#states path:hover {
+    fill: #4bedf3;
+}
+
+#states .active {
+    fill: #cb54db;
+
+
+}
+
+#states .activeDetail {
+    fill: #4bf391;
+
+
+}
+
+#states path {
+    cursor: pointer;
+}
+
+#states text {
+    cursor: pointer;
+    font-size: 8px;
+    fill: rgba(19, 5, 5, 0.99);
+    font-weight : 400;
+    font-family: 'Pretendard-Regular';
+
+}
+
+h1{
+    font-weight : 400;
+    font-family: 'Pretendard-Regular';
+    color : #151515;
+    position : relative;
+    top : 41%;
+}
+
+#dongsearch{
+
+    position : relative;
+    top : 46%;
+    left: 38%;
+
+
+}
+button{
+    width:20%;
+
+}
+#sectionfull{
+    margin-top : 5%;
+    position : relative;
+    height : 5%;
+
+
+
+}
+#similarbox{
+    position : relative;
+
+    margin-top: 10%;
+
+}
+
+
+
+
+</style>
+<script>
+    var data = '{{data}}';
+    console.log(data);
+    if (data == 'False'){
+        alert('동네를 선택 후 버튼을 눌러주세요.');
+    }
+</script>
+<div class="px-5" id="sectionfull">
+    <div class="container" id="similarbox">
+      <div class="row" id="rowbox">
+        <div class="col-md-6">
+            <h1 class="text-align d-flex justify-content-center" id="texttitle">자신의 동네를 클릭해주세요</h1>
+            <form action="{% url 'recommend_app:similarRecommend' %}"  method="POST" id="dongsearch"> {% csrf_token %}
+                <button style="padding:5px" class="btn btn-primary btn-lg " >동네 찾기</button>
+                <input type="hidden" name="dong_code" id="dong_code" value="">
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <div id="container"></div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

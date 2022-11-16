@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="../static/css/style.css" type="text/css">
+<link rel="stylesheet" href="../static/css/aquamarine.scss" type="text/css">
+<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+
+
+
+<script>
+  var replace_str = "{{ranking}}".replaceAll("&#x27;","\"");
+  var rank_data = JSON.parse(replace_str);
+  console.log(rank_data);
+  function ranking_func(str){
+
+    for(var i in rank_data){
+      if(rank_data[i].category == str){
+
+        var f = document.getElementById("first");
+        var s = document.getElementById("second");
+        var t = document.getElementById("third");
+        var four = document.getElementById("fourth");
+        var fif = document.getElementById("fifth");
+        f.textContent = rank_data[i].gu[0] + " " + rank_data[i].dong[0];
+        s.textContent = rank_data[i].gu[1] + " " + rank_data[i].dong[1];
+        t.textContent = rank_data[i].gu[2] + " " + rank_data[i].dong[2];
+
+        f.value = rank_data[i].gu[0] + "@" + rank_data[i].dong[0] +'@'+ rank_data[i].dong_code[0];
+        s.value = rank_data[i].gu[1] + "@" + rank_data[i].dong[1] +'@'+ rank_data[i].dong_code[1];
+        t.value = rank_data[i].gu[2] + "@" + rank_data[i].dong[2] +'@'+ rank_data[i].dong_code[2];
+
+<!--        four.text = rank_data[i].gu[3] + " " + rank_data[i].dong[3];-->
+<!--        fif.text = rank_data[i].gu[4] + " " + rank_data[i].dong[4];-->
+      }
+    }
+}
+
+</script>
+
+<style>
+.o-hidden {
+    overflow:hidden;
+    }
+#contentnav {
+    transition: transform 0.4s;
+    transform: translateX(50%);
+    color :primary;
+    font-size : 30px;
+
+    left: -50%;
+    top: 50%;
+}
+
+.nav.justify-content-end {
+    transform: translateX(0);
+    left: 0;
+    }
+    #contentbox {
+
+}
+
+
+        #gold{
+    position : relative;
+    left :160px;
+    top:-150px;
+    width : 10%;
+    height : 10%;
+        }
+        #silver{
+    position : relative;
+    left :45px;
+
+    width : 10%;
+    height : 10%;
+        }
+        #bronze{
+    position : relative;
+    left :-60px;
+    top:170px;
+    width : 10%;
+    height : 10%;
+        }
+
+        #first{
+          font-size : 50px;
+          position : relative;
+          left :300px;
+          top:125px;
+          font-weight : 400;
+          color: #12BBAD;
+
+        }
+        #second{
+          font-size : 50px;
+          position : relative;
+          left :300px;
+          top:190px;
+          font-weight : 400;
+          color: #12BBAD;
+
+
+        }
+        #third{
+          font-size : 50px;
+          position : relative;
+          left :300px;
+          top:270px;
+          font-weight : 400;
+          color: #12BBAD;
+
+
+        }
+.menu_item{
+  border :0;
+  outline: 0;
+  background-color : white;
+}
+.menu_item:hover {
+color: #12BBAD;
+
+}
+.border {
+  border: 2px solid #dee2e6 !important;
+  padding : 10px;}
+
+
+.border-primary {
+  border-color: #12bbad !important;
+   padding: 10px; }
+
+button:focus{
+    border: none;
+    outline:none;
+    }
+
+
+ul{
+
+    color:#12bbad;
+
+}
+li {
+
+    right : -1%;
+
+
+}
+
+.rank_item{
+  border :0;
+  outline: 0;
+  background-color : white;
+}
+.rank_item:hover {
+color: #000000;
+
+}
+
+
+</style>
+<div class="pt-5 d-flex justify-content-center">
+  <div class="container mt-5 m-lg-0" style="width : 200%;">
+   <div class="row d-flex justify-content-center">
+      <div class="col-md-10 border border-primary" id="featureline">
+        <ul class="nav nav-pills m-auto font-weight-bold " id="navbox" style="position : relative; color: primary; left:0.5%; top :5%; font-size : 18px; font-family: 'Pretendard-Regular'; margin-left : 50%; ">
+          <li class="nav-item"> <button onclick="ranking_func('transportation')" class="menu_item nav-link infra">교통</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('safety')" class=" menu_item nav-link infra" >치안</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('noise_vibration_num')" class="menu_item nav-link infra">조용한 동네</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('leisure_num')" class="menu_item nav-link infra">실내레저시설</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('gym_num')" class="menu_item nav-link infra">헬스장</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('golf_num')" class="menu_item nav-link infra">골프장</button> </li>
+          <li class="nav-item"> <button  onclick="ranking_func('park_num')" class="menu_item nav-link infra">공원</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('facilities')" class="menu_item nav-link infra">편의시설</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('medical')" class="menu_item nav-link infra">의료시설</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('starbucks_num')" class="menu_item nav-link infra">스타벅스</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('mc_num')" class="menu_item nav-link infra">맥도날드</button> </li>
+          <li class="nav-item"> <button  onclick="ranking_func('vegan_cnt')" class="menu_item nav-link infra">채식</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('coliving_num')" class="menu_item nav-link infra">코리빙</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('education')" class="menu_item nav-link infra">교육</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('parenting')" class="menu_item nav-link infra">육아</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('kids_num')" class="menu_item nav-link infra">키즈카페</button> </li>
+          <li class="nav-item"> <button  onclick="ranking_func('ani_hspt_num')" class="menu_item nav-link infra">동물병원</button> </li>
+          <li class="nav-item"> <button  onclick="ranking_func('safe_dlvr_num')" class="menu_item nav-link infra">안심택배</button> </li>
+          <li class="nav-item"> <button class="menu_item nav-link infra"  onclick="ranking_func('car_shr_num')">나눔카</button> </li>
+          <li class="nav-item"> <button onclick="ranking_func('mz_pop_cnt')" class="menu_item nav-link infra">MZ세대 인구수</button> </li>
+        </ul>
+      </div>
+   </div>
+
+
+  <div class="py-1">
+    <div class="container justify-content-center" >
+      <div class="container" id="kingcontainer" style="position: relative; left:8%;">
+        <form id="rank_form" action="{% url 'recommend_app:dongDetail' %}" method="post"> {% csrf_token %}
+          <button class="rank_item nav-link" name="dong_info" id="first" value="" data-toggle="pill" data-target="#tabone">&nbsp;</button>
+          <button class="rank_item nav-link" name="dong_info" id="second" value="" data-toggle="pill" data-target="#tabtwo">&nbsp;</button>
+         <button class="rank_item nav-link" name="dong_info" id="third" value="" data-toggle="pill" data-target="#tabthree">&nbsp;</button>
+        <img src="../static/img/free-icon-gold-medal-1910528.png" id="gold">
+        <img src="../static/img/free-icon-silver-medal-1910479.png" id="silver">
+        <img src="../static/img/free-icon-bronze-medal-5355514.png" id="bronze">
+        </form>
+
+      </div>
+
+      <div class="row">
+        <div class="col-3 col-md-4" style="">
+
+        </div>
+        <div class="col-9 col-md-4" style="">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tabone" role="tabpanel">
+              <p class="">
+
+              </p>
+            </div>
+            <div class="tab-pane fade" id="tabtwo" role="tabpanel">
+              <p class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+            </div>
+            <div class="tab-pane fade" id="tabthree" role="tabpanel">
+              <p class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}
