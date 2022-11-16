@@ -21,11 +21,12 @@
 ![image](https://user-images.githubusercontent.com/75618206/201856073-6a952435-8a5c-4d39-b959-cb63ee66b211.png)
 - 공공데이터 OPEN API, 인스타 크롤링 등을 이용한 데이터 
 ### 1-4. 협업에 사용한 툴
--	Git : https://github.com/cyless-hj/RESIDENCE_PJT
-          https://github.com/Jungrim/-FINAL_PJT_4
--	Slack
--	Trello : https://trello.com/b/TtIJ4wbS/finpjt4
--	Docker : https://hub.docker.com/r/jhjzmdk/residence_pjt
+- Git
+    - Data Pipeline : https://github.com/cyless-hj/RESIDENCE_PJT,
+    - Web Service : https://github.com/Jungrim/-FINAL_PJT_4
+- Slack
+- Trello : https://trello.com/b/TtIJ4wbS/finpjt4
+- Docker : https://hub.docker.com/r/jhjzmdk/residence_pjt
 ### 1-5. 기술 스택
 - DE
     - ETL 파이프라인
