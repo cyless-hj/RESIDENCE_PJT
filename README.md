@@ -61,6 +61,7 @@
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204562302-4e93af06-c0d2-498d-a41a-afb68def9dd5.png">
 </p>
+
 - 서비스에서 가장 중요한, 공통적으로 갖는 데이터는 구, 동, 좌표 데이터
 - 각 요소 별 위치정보 유형
     1. 지번주소 : 구, 동 Split이 가능한 형태로 간단히 구, 동 추출
