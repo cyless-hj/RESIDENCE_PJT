@@ -87,6 +87,10 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 ### 2-4. Transform (가공)
 - 추출한 Raw Data를 Spark를 사용해 구축한 RDB 테이블에 맞게 가공
 
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204563966-2eaa49c4-cd33-4484-85e7-1dc494a75257.png">
+</p>
+
 ### 2-5. Data Warehouse
 - ERD Cloud : https://www.erdcloud.com/d/QDAzQR7T8xhNF2bbS
 - 데이터 웨어하우스 테이블 설계 시 고려한 점은 중복값 없이 이상현상이 생기지 않게 적재해야 한다는 것. 3정규화까지 고려하여 설계
