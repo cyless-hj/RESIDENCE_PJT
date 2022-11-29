@@ -197,3 +197,69 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 </p>
 
 - 수집한 데이터를 이용해 실시간 인기 동네 및 인기 카테고리 순위 구현 예정
+
+## 3. 프로젝트 수행 결과 – 데이터 모델링
+
+### 3-1. 추천 시스템을 위한 모델링 적용 알고리즘 및 공식
+
+1. 컨텐츠 기반 필터링(Contents-based Filtering) : 아이템에 대한 프로필 데이터를 이용해 사용자가 선호하는 아이템과 비슷한 유형의 아이템을 추천
+	1. 행정동에 대한 피쳐 별 데이터 추출
+	2. 행정동의 특징을 벡터로 변환
+	3. 군집화 알고리즘을 이용 : 선택한 동네의 특징과 유사한 아이템들을 선별
+	4. 아이템들을 군집으로 나눈 후 아이템 A와 동일한 군집에 있는 아이템 A', B, C, D를 추천할 아이템 후보로 선정
+
+2. K-means clustering
+	1. 2차 K-means 클러스터링 진행
+	2. 군집의 의미 파악
+	3. 426개의 행정동 → 약 10개의 클러스터로 분류
+
+3. Cosine similarity
+	- 사용자 선호 동네 특성에 맞는 군집 추천
+	- 군집 내에서 유사한 거리를 갖는 동네 우선적으로 추천
+	- 거리 계산시 코사인 유사도 사용
+	<br>
+	- 동네 특성의 전체 방향성이 비슷하도록 사용자 선호 동네 특성과 유사한 동을 추가적으로 추천 
+
+### 3-2. 데이터 전처리
+
+1. MZ 세대 트렌드와 피처 가중치
+	- MZ 세대가 가장 많이 사용하는 SNS인 인스타그램 크롤링을 통해 가중치 결정
+	- 각 요소를 검색해 나오는 글의 해시태그를 이용
+	- 각 트렌드 키워드 끼리의 연관성을 찾아내어, 지역 추천시 사용자가 선택하지 않은 요소의 가중치도 파악하여 추천 가능
+
+![image](https://user-images.githubusercontent.com/75618206/204572864-d907c424-f6e4-4bca-b754-7155d8752c64.png)
+
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204572368-4a457a6c-8a3f-4a9b-8617-ddfd08a1663a.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204572864-d907c424-f6e4-4bca-b754-7155d8752c64.png">
+</p>
+
+2. 카테고리 분류
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204573187-f25384ec-7504-47db-b6b7-4585beb1d4a5.png">
+</p>
+
+	1. 주거지 선정에 기본적으로 필요로 하는 부분에 대한 범주
+	2. 타겟층인 MZ 세대에 대해 고려하여 라이프 스타일 등 개인 취향에 대한 범주
+
+3. 스케일링
+	1. Min-Max Scaler
+		- 데이터의 분포가 min-max 맞지 않음.
+		- 0에 가까운 데이터 다수 존재.
+		- 왜도, 첨도 수치가 매우 높은 편.
+		- 군집화 형태가 이상적이지 않음
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204574079-542d5c0b-a77d-449e-a474-66d88fd0e46b.png">
+</p>
+
+	2. Robust Scaler
+		- 중앙값 0, 사분위수의 제3사분위수에서 제1사분위수를 뺀값인 IQR이 1이 되도록 변환
+		- 다른 Scaler에 비해 표준화 진행 후의 데이터 형태는 더 넓게 나타남
+		- Robust Scaler 이용
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204574147-d1497d71-b3c6-4469-a22a-ee51584f21d3.png">
+</p>
