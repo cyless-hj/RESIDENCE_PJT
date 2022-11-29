@@ -288,8 +288,6 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 
 ### 3-4. 결과 검증
 - 최종 군집화 : 9개의 군집
-![image](https://user-images.githubusercontent.com/75618206/204577093-9e896ed6-71c2-453a-96ed-d6fe5cae5fa8.png)
-![image](https://user-images.githubusercontent.com/75618206/204577224-b1bbb9df-e9d7-4d4d-be85-0b9bc88b4c59.png)
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204577093-9e896ed6-71c2-453a-96ed-d6fe5cae5fa8.png">
 	<img src="https://user-images.githubusercontent.com/75618206/204577224-b1bbb9df-e9d7-4d4d-be85-0b9bc88b4c59.png">
