@@ -311,6 +311,43 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 2. d3.js : 지도 서비스의 시각화에 사용
 3. 네이버 지도 API : 위경도를 활용하여 지도 상에 카테고리 별 시설의 위치 표시
 
+### 4-3. 구현
+- 메인 페이지 : 사용자 데이터 수집을 위해 로그인 해야 기능을 사용할 수 있어 어떠한 기능을 제공하는지 보여준다.
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204581276-d8306019-8f7c-41e8-b636-c96eeda66e2d.png">
+</p>
+
+- 소개 : 제공하는 기능을 간단히 소개
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204581754-418bdf32-852e-43c6-8534-8d7b76d67246.png">
+</p>
+
+- 동네 추천 : 각 요소의 선호도를 받는다.
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204582049-19902d02-ffaa-41b5-bf10-c87178635b35.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204582099-a6123f53-5d1d-46f4-b1a6-dd3d54f2174a.png">
+</p>
+
+- 추천 결과 : 추천 동 3가지를 보여주며 유사도를 %와 방사형 그래프로 보여줘 추천의 이유를 시각적으로 보여준다.
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204582451-b0147794-3b9c-451b-adb5-348fd392f339.png">
+</p>
+
+- 동 상세정보 : 해당 동의 요소 위치를 지도로 보여주며 서울 평균과 비교할 수 있도록 그래프를 보여준다.
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204583030-7ddfb637-90c5-4f2e-9ac3-78987fe54248.png">
+</p>
+
+- 비슷한 동네 찾기 : 직접 동을 선택해 유사한 동을 보여준다.
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204583323-82c1b74a-c9b2-4aa3-87e0-5a6ce7255433.png">
+</p>
+
+- 각 카테고리 별 순위 : 각 카테고리별 상위 3개 동을 보여주며 동 클릭 시 해당 동의 정보를 보여준다.
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204583662-eee90f53-b33e-4ad1-8747-2549586aa5df.png">
+</p>
+
 ## 5. 개선사항
 - 사용자의 성능 만족도 반영을 위해 사용자의 성능 만족도 수집 기능 추가
 - 운영 DB에 적재된 데이터를 활용하여 가중치 세부 조정 및 성능 개선
