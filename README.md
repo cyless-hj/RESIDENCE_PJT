@@ -170,23 +170,20 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
     - 1달을 주기로 Airflow를 통해 데이터가 최신화 되도록 구성
 
 - 초기 구성
+    - 모든 extract class들을 하나의 그룹으로, 그리고 모든 transform, datamart, 운영DB 스크립트들 또한 각각 하나의 그룹으로 구성
+    - 하지만 병렬처리 되는 작업의 수가 많아 성능 문제 동작 불가
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204566587-4f863317-ddfb-4539-9a3c-9a44b272fcf3.png">
 </p>
 
-    - 모든 extract class들을 하나의 그룹으로, 그리고 모든 transform, datamart, 운영DB 스크립트들 또한 각각 하나의 그룹으로 구성
-    - 하지만 병렬처리 되는 작업의 수가 많아 성능 문제 동작 불가
-
 - 재구성
-
+    - 각 단계의 병렬처리 수를 줄여 Airflow가 문제없이 동작하도록 재구성
+    - 데이터 카테고리를 기준으로 나누어 3-4개의 스크립트로 병렬처리 구성
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204566841-9b4880ff-0e7e-4e63-9ff3-1067b9b24446.png">
 	<img src="https://user-images.githubusercontent.com/75618206/204566908-8d744027-3d29-4ad1-84c8-5aba0531aed7.png">
 </p>
-
-    - 각 단계의 병렬처리 수를 줄여 Airflow가 문제없이 동작하도록 재구성
-    - 데이터 카테고리를 기준으로 나누어 3-4개의 스크립트로 병렬처리 구성
 
 ### 2-9. Kafka
 
