@@ -102,7 +102,7 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 - 각 요소가 공통적으로 갖는 시도, 구, 동 데이터를 LOC 테이블로 구성해 스타스키마 형태로 설계
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/75618206/204564515-258cf732-da93-444f-81cc-14986a826fcd.pn">
+	<img src="https://user-images.githubusercontent.com/75618206/204564515-258cf732-da93-444f-81cc-14986a826fcd.png">
 </p>
 
 - 피쳐 별 테이블 유형
