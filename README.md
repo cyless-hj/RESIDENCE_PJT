@@ -73,7 +73,16 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 ### 2-3. Data Lake - Extract(추출)
 - AWS S3 : 본 프로젝트는 Data Lake로 HDFS 대신 AWS S3를 사용함으로서 로컬 환경이 아닌 클라우드 환경에 Raw Data를 추출해 데이터가 공유될 수 있는 환경 구축
 - IAM : Bucket 접근 권한을 부여한 IAM을 팀원 간 공유하여 클라우드 서비스를 더욱 안전하게 사용할 수 있도록 함
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204563263-4f38525c-d728-4442-b507-a67acc2b7c89.png">
+</p>
+
 - Bucket : 각 데이터 별로 디렉토리를 설정하여 저장하고 관리되도록 구성
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204563520-19996d21-a8e1-4da8-903b-a3f75cfeb19a.png">
+</p>
 
 ### 2-4. Transform (가공)
 - 추출한 Raw Data를 Spark를 사용해 구축한 RDB 테이블에 맞게 가공
