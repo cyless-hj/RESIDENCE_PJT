@@ -151,6 +151,7 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
     3. 카테고리 별 각 동 인구수 대비 위치한 개수
 
 ### 2-7. 운영 DB
+![image](https://user-images.githubusercontent.com/75618206/204568028-e7d9620d-f997-41aa-ac95-a52727b1fdab.png)
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204565911-b75d84fa-783c-4107-b9bf-60e4075622f1.png">
