@@ -151,10 +151,9 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
     3. 카테고리 별 각 동 인구수 대비 위치한 개수
 
 ### 2-7. 운영 DB
-![image](https://user-images.githubusercontent.com/75618206/204568028-e7d9620d-f997-41aa-ac95-a52727b1fdab.png)
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/75618206/204565911-b75d84fa-783c-4107-b9bf-60e4075622f1.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204568028-e7d9620d-f997-41aa-ac95-a52727b1fdab.png">
 </p>
 
 - ERD Cloud : https://www.erdcloud.com/d/uRqc5p8NpvKRBinaE
@@ -188,3 +187,18 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 
     - 각 단계의 병렬처리 수를 줄여 Airflow가 문제없이 동작하도록 재구성
     - 데이터 카테고리를 기준으로 나누어 3-4개의 스크립트로 병렬처리 구성
+
+### 2-9. Kafka
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204568372-f06025d6-bf61-4825-be20-d06cb4c551ce.png">
+</p>
+
+- Kafka - Django 연동을 통해 웹 서비스에서 유저 로그 데이터를 수집
+- S3에 로그 데이터 적재
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204569001-4c28a4bc-f98e-4b26-9d62-f5ae932e107f.png">
+</p>
+
+- 수집한 데이터를 이용해 실시간 인기 동네 및 인기 카테고리 순위 구현 예정
