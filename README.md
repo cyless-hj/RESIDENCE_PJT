@@ -35,6 +35,8 @@
         - 데이터 가공 및 분산처리엔진 : <img src="https://img.shields.io/badge/Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white">
         - 배치도구 : <img src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=black">
 - DS
+    - 추천시스템 모델링
+        - <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=Jupyter&logoColor=white">
 - WEB SERVER
     - Web Framework : <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white">
     - 언어 : <img src="https://img.shields.io/badge/html5-E34F26?style=flat-square&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=flat-square&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"> 
