@@ -92,13 +92,32 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 </p>
 
 ### 2-5. Data Warehouse
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204564294-c65115b9-a956-4fa1-9d4e-5e2392ffd6d4.png">
+</p>
+
 - ERD Cloud : https://www.erdcloud.com/d/QDAzQR7T8xhNF2bbS
 - 데이터 웨어하우스 테이블 설계 시 고려한 점은 중복값 없이 이상현상이 생기지 않게 적재해야 한다는 것. 3정규화까지 고려하여 설계
 - 각 요소가 공통적으로 갖는 시도, 구, 동 데이터를 LOC 테이블로 구성해 스타스키마 형태로 설계
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204564515-258cf732-da93-444f-81cc-14986a826fcd.pn">
+</p>
+
 - 피쳐 별 테이블 유형
     1. PK,장소 명,카테고리 코드, 위경도,도로명주소, 지역코드(FK)로 구성된 가장 일반적인 테이블 유형
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204564560-4e7513f9-7827-47c0-b2b3-14082fa07e03.png">
+</p>
+
     2. PK,장소 명,카테고리 코드, 위경도, 도로명주소, 지역코드(FK) 를 공통으로 가지며, 공통된 인스턴스 외에 특성을 살릴 수 있는 요소를 확장성을 고려하여 설계 예) 병원 – 평일 진료시간, 주말 진료시간
         - 프로젝트를 프로토타이핑 방식으로 진행했을 뿐만 아니라 추후의 확장을 고려했을 때 특성을 살릴 수 있는 데이터는 적재할 수 있도록 설계하는 것이 맞다고 판단, 각 요소의 기본 정보와 위치정보가 아닌 다른 의미를 가진 데이터는 테이블을 분할하여 설계
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204564642-e60e537f-022f-46bc-bce6-73f33e51cb9b.png">
+</p>
 
 ### 2-6. Data Mart
 - ERD Cloud : https://www.erdcloud.com/d/sQpL83KENqP9Wezdd
