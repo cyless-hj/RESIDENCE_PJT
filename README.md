@@ -48,11 +48,18 @@
 - Web Service
 
 ### 1-7. Workflow
-![image](https://user-images.githubusercontent.com/75618206/201856713-90d03e5c-3797-4b42-b199-f6dd243bb45a.png)
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/201856713-90d03e5c-3797-4b42-b199-f6dd243bb45a.png">
+</p>
 
 ## 2. 프로젝트 수행 결과 – 데이터 파이프라인
 ### 2-1. 계층형 카테고리
-![image](https://user-images.githubusercontent.com/75618206/201859483-ba928d8c-782d-4195-9673-00a445885b30.png)
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/201859483-ba928d8c-782d-4195-9673-00a445885b30.png">
+</p>
+
 - 관리가 용이한 형태의 카테고리 형태 : 각 객체의 카테고리가 달라지고 확장될 수 있는 가능성을 고려하여 3 Depth의 계층형으로 설계
 - 서비스적으로 나눈 카테고리가 아닌 데이터 관리 측면을 고려한 카테고리
 - 라이프스타일 카테고리처럼 세부카테고리로 나뉘는 경우도 있지만, 교통 카테고리처럼 세부 카테고리가 없는 경우에는 최상위 카테고리를 계승하여 DEPTH가 동일하도록 설계
@@ -112,7 +119,7 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 	<img src="https://user-images.githubusercontent.com/75618206/204564560-4e7513f9-7827-47c0-b2b3-14082fa07e03.png">
 </p>
 
-    2. PK,장소 명,카테고리 코드, 위경도, 도로명주소, 지역코드(FK) 를 공통으로 가지며, 공통된 인스턴스 외에 특성을 살릴 수 있는 요소를 확장성을 고려하여 설계 예) 병원 – 평일 진료시간, 주말 진료시간
+    2. PK,장소 명,카테고리 코드, 위경도, 도로명주소, 지역코드(FK)를 공통으로 가지며, 공통된 인스턴스 외에 특성을 살릴 수 있는 요소를 확장성을 고려하여 설계 예) 병원 – 평일 진료시간, 주말 진료시간
         - 프로젝트를 프로토타이핑 방식으로 진행했을 뿐만 아니라 추후의 확장을 고려했을 때 특성을 살릴 수 있는 데이터는 적재할 수 있도록 설계하는 것이 맞다고 판단, 각 요소의 기본 정보와 위치정보가 아닌 다른 의미를 가진 데이터는 테이블을 분할하여 설계
 
 <p align="center">
@@ -120,15 +127,35 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 </p>
 
 ### 2-6. Data Mart
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204565487-a1a942e7-7565-493f-8752-909c2f0d42ab.png">
+</p>
+
 - ERD Cloud : https://www.erdcloud.com/d/sQpL83KENqP9Wezdd
 - 데이터마트를 설계할 때 고려한 점은 데이터가 중복이 되더라도 하나의 테이블에서 원하는 정보를 다 얻을 수 있도록 설계하는 것
 - 각 요소에 대한 데이터를 데이터 사이언스 파트 측에서 요청할 경우 바로 제공할 수 있도록 각 요소별 테이블을 독립적으로 설계
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204565651-b2f57e85-26ba-4b3a-a078-d572405f0423.png">
+</p>
+
 - 통계 테이블 : 카테고리 별 동네 통계 자료로, 각 요소들이 각 동에 위치한 ‘개수’ 데이터를 적재한 테이블로 사이언스 측 모델링에 사용
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204565780-86290280-1bc1-4945-b7c4-83af43c44059.png">
+</p>
+
     1. 카테고리 별 각 동에 위치한 개수
     2. 카테고리 별 각 동 면적 대비 위치한 개수
     3. 카테고리 별 각 동 인구수 대비 위치한 개수
 
 ### 2-7. 운영 DB
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204565911-b75d84fa-783c-4107-b9bf-60e4075622f1.png">
+</p>
+
 - ERD Cloud : https://www.erdcloud.com/d/uRqc5p8NpvKRBinaE
 - 웹서비스에 필요한 데이터를 적재한 웹서비스 관련 테이블들과, 유저 정보를 받는 유저 관련 테이블들로 구성
 - 유저 관련 테이블 : 회원가입 시 받는 데이터를 적재하는 회원정보 테이블과 추천 시스템 사용 시 입력 받는 가중치 값을 적재하는 테이블로 구성
@@ -143,9 +170,20 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
     - 1달을 주기로 Airflow를 통해 데이터가 최신화 되도록 구성
 
 - 초기 구성
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204566587-4f863317-ddfb-4539-9a3c-9a44b272fcf3.png">
+</p>
+
     - 모든 extract class들을 하나의 그룹으로, 그리고 모든 transform, datamart, 운영DB 스크립트들 또한 각각 하나의 그룹으로 구성
     - 하지만 병렬처리 되는 작업의 수가 많아 성능 문제 동작 불가
 
 - 재구성
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204566841-9b4880ff-0e7e-4e63-9ff3-1067b9b24446.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204566908-8d744027-3d29-4ad1-84c8-5aba0531aed7.png">
+</p>
+
     - 각 단계의 병렬처리 수를 줄여 Airflow가 문제없이 동작하도록 재구성
     - 데이터 카테고리를 기준으로 나누어 3-4개의 스크립트로 병렬처리 구성
