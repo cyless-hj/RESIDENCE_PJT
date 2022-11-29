@@ -71,3 +71,449 @@ Not Found: /assets/restaurant/cover_light_4.jpg
 [2022-11-15 23:28:44 +0900] [1213] [INFO] Booting worker with pid: 1213
 [2022-11-15 14:42:05 +0000] [1213] [INFO] Parent changed, shutting down: <Worker 1213>
 [2022-11-15 14:42:05 +0000] [1213] [INFO] Worker exiting (pid: 1213)
+[2022-11-18 09:53:31 +0900] [1664] [INFO] Starting gunicorn 20.1.0
+[2022-11-18 09:53:31 +0900] [1664] [INFO] Listening at: http://0.0.0.0:8000 (1664)
+[2022-11-18 09:53:31 +0900] [1664] [INFO] Using worker: sync
+[2022-11-18 09:53:31 +0900] [1666] [INFO] Booting worker with pid: 1666
+[2022-11-18 00:53:31 +0000] [1666] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/middleware.py", line 1, in <module>
+    from kafka import KafkaProducer
+ModuleNotFoundError: No module named 'kafka'
+[2022-11-18 00:53:31 +0000] [1666] [INFO] Worker exiting (pid: 1666)
+[2022-11-18 09:53:31 +0900] [1664] [INFO] Shutting down: Master
+[2022-11-18 09:53:31 +0900] [1664] [INFO] Reason: Worker failed to boot.
+[2022-11-18 09:53:54 +0900] [1894] [INFO] Starting gunicorn 20.1.0
+[2022-11-18 09:53:54 +0900] [1894] [INFO] Listening at: http://0.0.0.0:8000 (1894)
+[2022-11-18 09:53:54 +0900] [1894] [INFO] Using worker: sync
+[2022-11-18 09:53:54 +0900] [1900] [INFO] Booting worker with pid: 1900
+[2022-11-18 00:53:54 +0000] [1900] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/middleware.py", line 1, in <module>
+    from kafka import KafkaProducer
+ModuleNotFoundError: No module named 'kafka'
+[2022-11-18 00:53:54 +0000] [1900] [INFO] Worker exiting (pid: 1900)
+[2022-11-18 09:53:54 +0900] [1894] [INFO] Shutting down: Master
+[2022-11-18 09:53:54 +0900] [1894] [INFO] Reason: Worker failed to boot.
+[2022-11-18 09:54:28 +0900] [2203] [INFO] Starting gunicorn 20.1.0
+[2022-11-18 09:54:28 +0900] [2203] [INFO] Listening at: http://0.0.0.0:8000 (2203)
+[2022-11-18 09:54:28 +0900] [2203] [INFO] Using worker: sync
+[2022-11-18 09:54:28 +0900] [2205] [INFO] Booting worker with pid: 2205
+[2022-11-18 00:54:29 +0000] [2205] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/middleware.py", line 1, in <module>
+    from kafka import KafkaProducer
+ModuleNotFoundError: No module named 'kafka'
+[2022-11-18 00:54:29 +0000] [2205] [INFO] Worker exiting (pid: 2205)
+[2022-11-18 09:54:29 +0900] [2203] [INFO] Shutting down: Master
+[2022-11-18 09:54:29 +0900] [2203] [INFO] Reason: Worker failed to boot.
+[2022-11-18 09:56:47 +0900] [3417] [INFO] Starting gunicorn 20.1.0
+[2022-11-18 09:56:47 +0900] [3417] [INFO] Listening at: http://0.0.0.0:8000 (3417)
+[2022-11-18 09:56:47 +0900] [3417] [INFO] Using worker: sync
+[2022-11-18 09:56:47 +0900] [3419] [INFO] Booting worker with pid: 3419
+[2022-11-18 10:02:19 +0900] [3417] [INFO] Handling signal: hup
+[2022-11-18 10:02:19 +0900] [3417] [INFO] Hang up: Master
+[2022-11-18 10:02:19 +0900] [3417] [WARNING] Worker with pid 3419 was terminated due to signal 1
+[2022-11-18 10:02:19 +0900] [6563] [INFO] Booting worker with pid: 6563
+{'ip': '127.0.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/', 'parameter': {}, 'timestamp': 1668733573, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '127.0.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/js/smooth-scroll.js', 'parameter': {}, 'timestamp': 1668733575, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.2', 'user': 'test10', 'http_method': 'GET', 'url': '/favicon.ico', 'parameter': {}, 'timestamp': 1668733575, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/', 'parameter': {}, 'timestamp': 1668733578, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668733578, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668733578, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668733579, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668733579, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668733579, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/js/smooth-scroll.js', 'parameter': {}, 'timestamp': 1668733580, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668733580, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/2.png', 'parameter': {}, 'timestamp': 1668733580, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/1.png', 'parameter': {}, 'timestamp': 1668733581, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/3.png', 'parameter': {}, 'timestamp': 1668733581, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/4.png', 'parameter': {}, 'timestamp': 1668733581, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668733582, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/5.png', 'parameter': {}, 'timestamp': 1668733582, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/09238DF7-7E48-4185-A9AD-0BC1C40767DD_1_201_a.jpeg', 'parameter': {}, 'timestamp': 1668733582, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/0D9A0304.jpg', 'parameter': {}, 'timestamp': 1668733583, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/assets/restaurant/cover_light_4.jpg', 'parameter': {}, 'timestamp': 1668733583, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/half2.png', 'parameter': {}, 'timestamp': 1668733583, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+[2022-11-18 10:07:42 +0900] [3417] [CRITICAL] WORKER TIMEOUT (pid:6563)
+[2022-11-18 01:07:42 +0000] [6563] [INFO] Worker exiting (pid: 6563)
+[2022-11-18 10:07:42 +0900] [10418] [INFO] Booting worker with pid: 10418
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/categoryRanking', 'parameter': {}, 'timestamp': 1668733664, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+[{'category': 'transportation', 'dong_code': [1162069500, 1130553500, 1111058000, 1129076000, 1150053500], 'gu': ['관악구', '강북구', '종로구', '성북구', '강서구'], 'dong': ['신림동', '미아동', '교남동', '장위1동', '등촌3동'], 'cnt': [136.6885522, 54.35913978, 38.25714286, 37.4, 36.69198312]}, {'category': 'safety', 'dong_code': [1153059500, 1153055000, 1129062000, 1153077000, 1154564000], 'gu': ['구로구', '구로구', '성북구', '구로구', '금천구'], 'dong': ['가리봉동', '구로4동', '정릉1동', '오류1동', '독산4동'], 'cnt': [522.5, 321.3043478, 258.9015152, 245.7627119, 229.6610169]}, {'category': 'noise_vibration_num', 'dong_code': [1111058000, 1111061500, 1129061000, 1156053500, 1114055000], 'gu': ['종로구', '종로구', '성북구', '영등포구', '중구'], 'dong': ['교남동', '종로1.2.3.4가동', '보문동', '영등포동', '명동'], 'cnt': [34560.0, 23877.44681, 22287.5, 22019.04762, 21949.49495]}, {'category': 'leisure_num', 'dong_code': [1114067000, 1121571000, 1156053500, 1144066000, 1129057500], 'gu': ['중구', '광진구', '영등포구', '마포구', '성북구'], 'dong': ['황학동', '화양동', '영등포동', '서교동', '동선동'], 'cnt': [12.12121212, 10.34482759, 9.523809524, 9.090909091, 8.219178082]}, {'category': 'gym_num', 'dong_code': [1168065000, 1165053100, 1168052100, 1171059000, 1162054500], 'gu': ['강남구', '서초구', '강남구', '송파구', '관악구'], 'dong': ['역삼2동', '서초4동', '논현1동', '송파2동', '청림동'], 'cnt': [39.13043478, 34.09090909, 30.8, 29.24528302, 26.2962963]}, {'category': 'golf_num', 'dong_code': [1168065000, 1168052100, 1165053100, 1168063000, 1168060000], 'gu': ['강남구', '강남구', '서초구', '강남구', '강남구'], 'dong': ['역삼2동', '논현1동', '서초4동', '대치4동', '대치1동'], 'cnt': [28.26086957, 19.2, 19.03409091, 17.80821918, 16.4556962]}, {'category': 'park_num', 'dong_code': [1111064000, 1114054000, 1117058000, 1111070000, 1120059000], 'gu': ['종로구', '중구', '용산구', '종로구', '성동구'], 'dong': ['이화동', '회현동', '효창동', '숭인1동', '금호1가동'], 'cnt': [2.564102564, 2.380952381, 2.272727273, 2.173913043, 2.173913043]}, {'category': 'facilities', 'dong_code': [1168065000, 1114055000, 1114060500, 1114059000, 1162054500], 'gu': ['강남구', '중구', '중구', '중구', '관악구'], 'dong': ['역삼2동', '명동', '을지로동', '광희동', '청림동'], 'cnt': [118.0652174, 111.6161616, 75.76666667, 75.53378378, 70.01111111]}, {'category': 'medical', 'dong_code': [1168065000, 1111063000, 1165053100, 1114055000, 1168052100], 'gu': ['강남구', '종로구', '서초구', '중구', '강남구'], 'dong': ['역삼2동', '종로5.6가동', '서초4동', '명동', '논현1동'], 'cnt': [251.9130435, 186.6, 186.1704545, 178.7878788, 172.976]}, {'category': 'starbucks_num', 'dong_code': [1114055000, 1111058000, 1114054000, 1168065000, 1114052000], 'gu': ['중구', '종로구', '중구', '강남구', '중구'], 'dong': ['명동', '교남동', '회현동', '역삼2동', '소공동'], 'cnt': [18.68686869, 11.42857143, 11.30952381, 10.43478261, 9.473684211]}, {'category': 'mc_num', 'dong_code': [1114055000, 1154551000, 1111069000, 1111064000, 1111068000], 'gu': ['중구', '금천구', '종로구', '종로구', '종로구'], 'dong': ['명동', '가산동', '창신3동', '이화동', '창신2동'], 'cnt': [3.03030303, 1.587301587, 1.449275362, 1.282051282, 1.282051282]}, {'category': 'vegan_cnt', 'dong_code': [1114055000, 1156055000, 1114052000, 1156053500, 1141071000], 'gu': ['중구', '영등포구', '중구', '영등포구', '서대문구'], 'dong': ['명동', '당산1동', '소공동', '영등포동', '북가좌1동'], 'cnt': [36.36363636, 25.33333333, 23.15789474, 18.65079365, 16.36363636]}, {'category': 'coliving_num', 'dong_code': [1114059000, 1111070000, 1114057000, 1114052000, 1144071000], 'gu': ['중구', '종로구', '중구', '중구', '마포구'], 'dong': ['광희동', '숭인1동', '필동', '소공동', '연남동'], 'cnt': [5.405405405, 4.347826087, 3.50877193, 3.157894737, 3.125]}, {'category': 'education', 'dong_code': [1168063000, 1168060000, 1147053000, 1168074000, 1147054000], 'gu': ['강남구', '강남구', '양천구', '강남구', '양천구'], 'dong': ['대치4동', '대치1동', '목3동', '일원2동', '목4동'], 'cnt': [390.9828767, 361.2879747, 283.5245283, 276.0322581, 263.6280702]}, {'category': 'parenting', 'dong_code': [1156067000, 1138060000, 1153055000, 1171053100, 1174052600], 'gu': ['영등포구', '은평구', '구로구', '송파구', '강동구'], 'dong': ['신길5동', '응암3동', '구로4동', '거여1동', '상일2동'], 'cnt': [167.7051672, 157.1428571, 154.7826087, 143.1372549, 138.8888889]}, {'category': 'kids_num', 'dong_code': [1171056100, 1114067000, 1129057500, 1111058000, 1174060000], 'gu': ['송파구', '중구', '성북구', '종로구', '강동구'], 'dong': ['방이1동', '황학동', '동선동', '교남동', '천호1동'], 'cnt': [4.0, 3.03030303, 2.96803653, 2.857142857, 2.816901408]}, {'category': 'ani_hspt_num', 'dong_code': [1114067000, 1171059000, 1147053000, 1147054000, 1168065000], 'gu': ['중구', '송파구', '양천구', '양천구', '강남구'], 'dong': ['황학동', '송파2동', '목3동', '목4동', '역삼2동'], 'cnt': [9.090909091, 8.490566038, 7.924528302, 7.368421053, 6.52173913]}, {'category': 'safe_dlvr_num', 'dong_code': [1117058000, 1111070000, 1141069000, 1114066500, 1144071000], 'gu': ['용산구', '종로구', '서대문구', '중구', '마포구'], 'dong': ['효창동', '숭인1동', '남가좌1동', '동화동', '연남동'], 'cnt': [4.545454545, 4.347826087, 3.921568627, 3.205128205, 3.125]}, {'category': 'car_shr_num', 'dong_code': [1153055000, 1168065000, 1144066000, 1162054500, 1129062000], 'gu': ['구로구', '강남구', '마포구', '관악구', '성북구'], 'dong': ['구로4동', '역삼2동', '서교동', '청림동', '정릉1동'], 'cnt': [16.95652174, 16.52173913, 14.54545455, 12.96296296, 11.5530303]}, {'category': 'mz_pop_cnt', 'dong_code': [1162069500, 1162061500, 1162057500, 1150054000, 1150052000], 'gu': ['관악구', '관악구', '관악구', '강서구', '강서구'], 'dong': ['신림동', '중앙동', '행운동', '화곡1동', '등촌1동'], 'cnt': [27574.07407, 19633.33333, 19100.0, 18240.17857, 17625.0]}]
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668733666, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668733667, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668733667, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668733667, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668733668, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.scss', 'parameter': {}, 'timestamp': 1668733668, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668733668, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/free-icon-gold-medal-1910528.png', 'parameter': {}, 'timestamp': 1668733669, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/free-icon-silver-medal-1910479.png', 'parameter': {}, 'timestamp': 1668733669, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/free-icon-bronze-medal-5355514.png', 'parameter': {}, 'timestamp': 1668733669, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668733669, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.scss', 'parameter': {}, 'timestamp': 1668733670, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'POST', 'url': '/dongDetail', 'parameter': {'csrfmiddlewaretoken': ['JQXiLvqgrU0415fDZbTyQS3fdktbkZILBfc968eRfzT87ayJ3hP8aEPpDqRPRvBT'], 'dong_info': ['관악구@신림동@1162069500']}, 'timestamp': 1668733685, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+[37.487426, 126.927075]
+<class 'list'>
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668733685, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668733685, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668733686, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668733686, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668733686, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668733687, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'POST', 'url': '/dongDetail', 'parameter': {'csrfmiddlewaretoken': ['JQXiLvqgrU0415fDZbTyQS3fdktbkZILBfc968eRfzT87ayJ3hP8aEPpDqRPRvBT'], 'dong_info': ['강북구@미아동@1130553500']}, 'timestamp': 1668733707, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+[37.6270736, 127.0269791]
+<class 'list'>
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668733707, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668733707, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668733708, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668733708, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668733708, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668733709, 'session_id': 'vt4753dt0gcec60vg0p191t2wgi88wjz'}
+[2022-11-18 10:27:13 +0900] [3417] [CRITICAL] WORKER TIMEOUT (pid:10418)
+[2022-11-18 01:27:13 +0000] [10418] [INFO] Worker exiting (pid: 10418)
+[2022-11-18 10:27:14 +0900] [20860] [INFO] Booting worker with pid: 20860
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/js/smooth-scroll.js', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/1.png', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/2.png', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/3.png', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/4.png', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/5.png', 'parameter': {}, 'timestamp': 1668734836, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734837, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/09238DF7-7E48-4185-A9AD-0BC1C40767DD_1_201_a.jpeg', 'parameter': {}, 'timestamp': 1668734837, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/0D9A0304.jpg', 'parameter': {}, 'timestamp': 1668734837, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/assets/restaurant/cover_light_4.jpg', 'parameter': {}, 'timestamp': 1668734837, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/half2.png', 'parameter': {}, 'timestamp': 1668734837, 'session_id': 'None'}
+[2022-11-18 10:28:48 +0900] [3417] [CRITICAL] WORKER TIMEOUT (pid:20860)
+[2022-11-18 01:28:48 +0000] [20860] [INFO] Worker exiting (pid: 20860)
+[2022-11-18 10:28:48 +0900] [21720] [INFO] Booting worker with pid: 21720
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/login/', 'parameter': {}, 'timestamp': 1668734928, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/css/style.css', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/css/demo.css', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/js/d3.js', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/js/korea.js', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때(맞춤형 동네추천 서비스).png', 'parameter': {}, 'timestamp': 1668734930, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'POST', 'url': '/accounts/login/', 'parameter': {'csrfmiddlewaretoken': ['2wnzKZyO1M3HQ6cXB6Y4QAbHOZhXeAyHUVCq5CmpPrWLWbv3FcUEamXRe5FBL6rP'], 'next': [''], 'username': ['test10'], 'password': ['guswls7992']}, 'timestamp': 1668734945, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/', 'parameter': {}, 'timestamp': 1668734946, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668734946, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734946, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668734947, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668734947, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668734947, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/js/smooth-scroll.js', 'parameter': {}, 'timestamp': 1668734948, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668734948, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/1.png', 'parameter': {}, 'timestamp': 1668734948, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/2.png', 'parameter': {}, 'timestamp': 1668734948, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/3.png', 'parameter': {}, 'timestamp': 1668734949, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/4.png', 'parameter': {}, 'timestamp': 1668734949, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734949, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/5.png', 'parameter': {}, 'timestamp': 1668734949, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/09238DF7-7E48-4185-A9AD-0BC1C40767DD_1_201_a.jpeg', 'parameter': {}, 'timestamp': 1668734950, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/0D9A0304.jpg', 'parameter': {}, 'timestamp': 1668734950, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/assets/restaurant/cover_light_4.jpg', 'parameter': {}, 'timestamp': 1668734950, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/half2.png', 'parameter': {}, 'timestamp': 1668734951, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/categoryRanking', 'parameter': {}, 'timestamp': 1668734961, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+[{'category': 'transportation', 'dong_code': [1162069500, 1130553500, 1111058000, 1129076000, 1150053500], 'gu': ['관악구', '강북구', '종로구', '성북구', '강서구'], 'dong': ['신림동', '미아동', '교남동', '장위1동', '등촌3동'], 'cnt': [136.6885522, 54.35913978, 38.25714286, 37.4, 36.69198312]}, {'category': 'safety', 'dong_code': [1153059500, 1153055000, 1129062000, 1153077000, 1154564000], 'gu': ['구로구', '구로구', '성북구', '구로구', '금천구'], 'dong': ['가리봉동', '구로4동', '정릉1동', '오류1동', '독산4동'], 'cnt': [522.5, 321.3043478, 258.9015152, 245.7627119, 229.6610169]}, {'category': 'noise_vibration_num', 'dong_code': [1111058000, 1111061500, 1129061000, 1156053500, 1114055000], 'gu': ['종로구', '종로구', '성북구', '영등포구', '중구'], 'dong': ['교남동', '종로1.2.3.4가동', '보문동', '영등포동', '명동'], 'cnt': [34560.0, 23877.44681, 22287.5, 22019.04762, 21949.49495]}, {'category': 'leisure_num', 'dong_code': [1114067000, 1121571000, 1156053500, 1144066000, 1129057500], 'gu': ['중구', '광진구', '영등포구', '마포구', '성북구'], 'dong': ['황학동', '화양동', '영등포동', '서교동', '동선동'], 'cnt': [12.12121212, 10.34482759, 9.523809524, 9.090909091, 8.219178082]}, {'category': 'gym_num', 'dong_code': [1168065000, 1165053100, 1168052100, 1171059000, 1162054500], 'gu': ['강남구', '서초구', '강남구', '송파구', '관악구'], 'dong': ['역삼2동', '서초4동', '논현1동', '송파2동', '청림동'], 'cnt': [39.13043478, 34.09090909, 30.8, 29.24528302, 26.2962963]}, {'category': 'golf_num', 'dong_code': [1168065000, 1168052100, 1165053100, 1168063000, 1168060000], 'gu': ['강남구', '강남구', '서초구', '강남구', '강남구'], 'dong': ['역삼2동', '논현1동', '서초4동', '대치4동', '대치1동'], 'cnt': [28.26086957, 19.2, 19.03409091, 17.80821918, 16.4556962]}, {'category': 'park_num', 'dong_code': [1111064000, 1114054000, 1117058000, 1111070000, 1120059000], 'gu': ['종로구', '중구', '용산구', '종로구', '성동구'], 'dong': ['이화동', '회현동', '효창동', '숭인1동', '금호1가동'], 'cnt': [2.564102564, 2.380952381, 2.272727273, 2.173913043, 2.173913043]}, {'category': 'facilities', 'dong_code': [1168065000, 1114055000, 1114060500, 1114059000, 1162054500], 'gu': ['강남구', '중구', '중구', '중구', '관악구'], 'dong': ['역삼2동', '명동', '을지로동', '광희동', '청림동'], 'cnt': [118.0652174, 111.6161616, 75.76666667, 75.53378378, 70.01111111]}, {'category': 'medical', 'dong_code': [1168065000, 1111063000, 1165053100, 1114055000, 1168052100], 'gu': ['강남구', '종로구', '서초구', '중구', '강남구'], 'dong': ['역삼2동', '종로5.6가동', '서초4동', '명동', '논현1동'], 'cnt': [251.9130435, 186.6, 186.1704545, 178.7878788, 172.976]}, {'category': 'starbucks_num', 'dong_code': [1114055000, 1111058000, 1114054000, 1168065000, 1114052000], 'gu': ['중구', '종로구', '중구', '강남구', '중구'], 'dong': ['명동', '교남동', '회현동', '역삼2동', '소공동'], 'cnt': [18.68686869, 11.42857143, 11.30952381, 10.43478261, 9.473684211]}, {'category': 'mc_num', 'dong_code': [1114055000, 1154551000, 1111069000, 1111064000, 1111068000], 'gu': ['중구', '금천구', '종로구', '종로구', '종로구'], 'dong': ['명동', '가산동', '창신3동', '이화동', '창신2동'], 'cnt': [3.03030303, 1.587301587, 1.449275362, 1.282051282, 1.282051282]}, {'category': 'vegan_cnt', 'dong_code': [1114055000, 1156055000, 1114052000, 1156053500, 1141071000], 'gu': ['중구', '영등포구', '중구', '영등포구', '서대문구'], 'dong': ['명동', '당산1동', '소공동', '영등포동', '북가좌1동'], 'cnt': [36.36363636, 25.33333333, 23.15789474, 18.65079365, 16.36363636]}, {'category': 'coliving_num', 'dong_code': [1114059000, 1111070000, 1114057000, 1114052000, 1144071000], 'gu': ['중구', '종로구', '중구', '중구', '마포구'], 'dong': ['광희동', '숭인1동', '필동', '소공동', '연남동'], 'cnt': [5.405405405, 4.347826087, 3.50877193, 3.157894737, 3.125]}, {'category': 'education', 'dong_code': [1168063000, 1168060000, 1147053000, 1168074000, 1147054000], 'gu': ['강남구', '강남구', '양천구', '강남구', '양천구'], 'dong': ['대치4동', '대치1동', '목3동', '일원2동', '목4동'], 'cnt': [390.9828767, 361.2879747, 283.5245283, 276.0322581, 263.6280702]}, {'category': 'parenting', 'dong_code': [1156067000, 1138060000, 1153055000, 1171053100, 1174052600], 'gu': ['영등포구', '은평구', '구로구', '송파구', '강동구'], 'dong': ['신길5동', '응암3동', '구로4동', '거여1동', '상일2동'], 'cnt': [167.7051672, 157.1428571, 154.7826087, 143.1372549, 138.8888889]}, {'category': 'kids_num', 'dong_code': [1171056100, 1114067000, 1129057500, 1111058000, 1174060000], 'gu': ['송파구', '중구', '성북구', '종로구', '강동구'], 'dong': ['방이1동', '황학동', '동선동', '교남동', '천호1동'], 'cnt': [4.0, 3.03030303, 2.96803653, 2.857142857, 2.816901408]}, {'category': 'ani_hspt_num', 'dong_code': [1114067000, 1171059000, 1147053000, 1147054000, 1168065000], 'gu': ['중구', '송파구', '양천구', '양천구', '강남구'], 'dong': ['황학동', '송파2동', '목3동', '목4동', '역삼2동'], 'cnt': [9.090909091, 8.490566038, 7.924528302, 7.368421053, 6.52173913]}, {'category': 'safe_dlvr_num', 'dong_code': [1117058000, 1111070000, 1141069000, 1114066500, 1144071000], 'gu': ['용산구', '종로구', '서대문구', '중구', '마포구'], 'dong': ['효창동', '숭인1동', '남가좌1동', '동화동', '연남동'], 'cnt': [4.545454545, 4.347826087, 3.921568627, 3.205128205, 3.125]}, {'category': 'car_shr_num', 'dong_code': [1153055000, 1168065000, 1144066000, 1162054500, 1129062000], 'gu': ['구로구', '강남구', '마포구', '관악구', '성북구'], 'dong': ['구로4동', '역삼2동', '서교동', '청림동', '정릉1동'], 'cnt': [16.95652174, 16.52173913, 14.54545455, 12.96296296, 11.5530303]}, {'category': 'mz_pop_cnt', 'dong_code': [1162069500, 1162061500, 1162057500, 1150054000, 1150052000], 'gu': ['관악구', '관악구', '관악구', '강서구', '강서구'], 'dong': ['신림동', '중앙동', '행운동', '화곡1동', '등촌1동'], 'cnt': [27574.07407, 19633.33333, 19100.0, 18240.17857, 17625.0]}]
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668734963, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734964, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668734964, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668734964, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668734964, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.scss', 'parameter': {}, 'timestamp': 1668734965, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668734965, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/free-icon-gold-medal-1910528.png', 'parameter': {}, 'timestamp': 1668734965, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/free-icon-silver-medal-1910479.png', 'parameter': {}, 'timestamp': 1668734965, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734966, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/free-icon-bronze-medal-5355514.png', 'parameter': {}, 'timestamp': 1668734966, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.scss', 'parameter': {}, 'timestamp': 1668734966, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'POST', 'url': '/dongDetail', 'parameter': {'csrfmiddlewaretoken': ['g6DyrkQAUpcvPhTCxO9lE99EVXB7wNS9ZnmI88iugKoq69FNTRS1zMtu9jt8bJio'], 'dong_info': ['강남구@대치4동@1168063000']}, 'timestamp': 1668734969, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+[37.4997415, 127.0579127]
+<class 'list'>
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668734970, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668734970, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668734970, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668734971, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668734971, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+{'ip': '172.17.0.1', 'user': 'test10', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668734971, 'session_id': 'hekekw5cr0in5zkcohx7rwavdj0r4gaj'}
+[2022-11-18 01:33:31 +0000] [21720] [INFO] Parent changed, shutting down: <Worker 21720>
+[2022-11-18 01:33:31 +0000] [21720] [INFO] Worker exiting (pid: 21720)
+[2022-11-18 10:47:25 +0900] [719] [INFO] Starting gunicorn 20.1.0
+[2022-11-18 10:47:25 +0900] [719] [INFO] Listening at: http://0.0.0.0:8000 (719)
+[2022-11-18 10:47:25 +0900] [719] [INFO] Using worker: sync
+[2022-11-18 10:47:25 +0900] [724] [INFO] Booting worker with pid: 724
+[2022-11-18 01:47:26 +0000] [724] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/big/.local/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/home/big/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "/home/big/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/big/study/residence_web/MZ_recommend_system/middleware.py", line 7, in <module>
+    class LogMiddleware:
+  File "/home/big/study/residence_web/MZ_recommend_system/middleware.py", line 9, in LogMiddleware
+    producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+  File "/home/big/.local/lib/python3.8/site-packages/kafka/producer/kafka.py", line 381, in __init__
+    client = KafkaClient(metrics=self._metrics, metric_group_prefix='producer',
+  File "/home/big/.local/lib/python3.8/site-packages/kafka/client_async.py", line 244, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+  File "/home/big/.local/lib/python3.8/site-packages/kafka/client_async.py", line 900, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2022-11-18 01:47:26 +0000] [724] [INFO] Worker exiting (pid: 724)
+[2022-11-18 10:47:26 +0900] [719] [INFO] Shutting down: Master
+[2022-11-18 10:47:26 +0900] [719] [INFO] Reason: Worker failed to boot.
+[2022-11-18 11:26:41 +0900] [22796] [INFO] Starting gunicorn 20.1.0
+[2022-11-18 11:26:41 +0900] [22796] [INFO] Listening at: http://0.0.0.0:8000 (22796)
+[2022-11-18 11:26:41 +0900] [22796] [INFO] Using worker: sync
+[2022-11-18 11:26:41 +0900] [22798] [INFO] Booting worker with pid: 22798
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/css/aquamarine.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/css/style.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/css/demo.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/js/d3.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/js/korea.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/js/smooth-scroll.js', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /js/smooth-scroll.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/동네 어때.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/1.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/1.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/2.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/2.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/3.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/3.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/4.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/4.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/5.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/5.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/css/style.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/09238DF7-7E48-4185-A9AD-0BC1C40767DD_1_201_a.jpeg', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/09238DF7-7E48-4185-A9AD-0BC1C40767DD_1_201_a.jpeg
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/0D9A0304.jpg', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/0D9A0304.jpg
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/assets/restaurant/cover_light_4.jpg', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /assets/restaurant/cover_light_4.jpg
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/half2.png', 'parameter': {}, 'timestamp': 1668738420, 'session_id': 'None'}
+Not Found: /static/img/half2.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668738424, 'session_id': 'None'}
+Not Found: /static/css/aquamarine.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668738424, 'session_id': 'None'}
+Not Found: /static/css/style.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668738424, 'session_id': 'None'}
+Not Found: /static/css/demo.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/basicSelect', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/login/', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /accounts/static/css/aquamarine.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/css/style.css', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /accounts/static/css/style.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/css/demo.css', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /accounts/static/css/demo.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/js/d3.js', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /accounts/static/js/d3.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/accounts/static/js/korea.js', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /accounts/static/js/korea.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /static/img/동네 어때.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때(맞춤형 동네추천 서비스).png', 'parameter': {}, 'timestamp': 1668738682, 'session_id': 'None'}
+Not Found: /static/img/동네 어때(맞춤형 동네추천 서비스).png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/introduction', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/aquamarine.css', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/css/aquamarine.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/style.css', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/css/style.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/css/demo.css', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/css/demo.css
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/js/d3.js', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/js/d3.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/js/korea.js', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/js/korea.js
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/동네 어때.png', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/img/동네 어때.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/address.png', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/img/address.png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/search (1).png', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/img/search (1).png
+{'ip': '172.17.0.1', 'user': 'AnonymousUser', 'http_method': 'GET', 'url': '/static/img/rank (1).png', 'parameter': {}, 'timestamp': 1668738694, 'session_id': 'None'}
+Not Found: /static/img/rank (1).png
+[2022-11-18 03:57:23 +0000] [22798] [INFO] Parent changed, shutting down: <Worker 22798>
+[2022-11-18 03:57:23 +0000] [22798] [INFO] Worker exiting (pid: 22798)

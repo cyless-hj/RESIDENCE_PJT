@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from accounts.forms import UserForm
+from kafka import KafkaConsumer
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def signup(request):
@@ -20,3 +22,18 @@ def signup(request):
     else:
         form = UserForm()
     return render(request, 'accounts/signup.html', {'form':form})
+
+@login_required(login_url='accounts:login')
+def cal_static(request):    
+    consumer = KafkaConsumer('project-session'
+                , bootstrap_servers=['localhost:9092']
+                , auto_offset_reset='earliest'
+                , enable_auto_commit=False,
+                consumer_timeout_ms=1000)
+
+    for msg in consumer:
+        print ("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
+                                        message.offset, message.key,
+                                        message.value))
+
+    return redirect('/')
