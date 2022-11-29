@@ -227,9 +227,6 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 	- 각 요소를 검색해 나오는 글의 해시태그를 이용
 	- 각 트렌드 키워드 끼리의 연관성을 찾아내어, 지역 추천시 사용자가 선택하지 않은 요소의 가중치도 파악하여 추천 가능
 
-![image](https://user-images.githubusercontent.com/75618206/204572864-d907c424-f6e4-4bca-b754-7155d8752c64.png)
-
-
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204572368-4a457a6c-8a3f-4a9b-8617-ddfd08a1663a.png">
 	<img src="https://user-images.githubusercontent.com/75618206/204572864-d907c424-f6e4-4bca-b754-7155d8752c64.png">
@@ -263,3 +260,39 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204574147-d1497d71-b3c6-4469-a22a-ee51584f21d3.png">
 </p>
+
+4. 왜도 / 첨도 반영
+	- 데이터를 범위로 잘라 점수화 진행(범주화) : 데이터를 지나치게 일반화하는 경향이 생김
+	- 각 속성의 데이터 형태를 확인하고 왜도, 첨도의 정규성 기준에 따라 데이터 처리를 진행
+		- 시각화를 통해 데이터 왜곡을 확인
+		- 데이터의 치우침이나 이상치 처리
+
+	- 왜도 : 분포의 비대칭성을 나타내는 척도
+		- 로그 스케일링을 적용 : 왼쪽으로 치우친 형태의 데이터를 가공
+	- 첨도 : 분포의 꼬리부분에 대한 길이와 중앙부분의 뾰족함을 나타내는 척도
+		- 최댓값을 제한 → 지나치게 긴 꼬리부분에 대한 처리
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204575872-d8614539-e967-42c5-8611-eb4536ddcb33.png">
+</p>
+
+### 3-3. 모델링 – K-means : Elbow chart 활용
+1. 1차 Clustering
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204576458-3658a585-e43d-475a-b458-ea371648c1de.png">
+</p>
+
+2. 2차 Clustering
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204576589-e8c2b4a2-3a74-4fd0-807e-4a05cab8b871.png">
+</p>
+
+### 3-4. 결과 검증
+- 최종 군집화 : 9개의 군집
+![image](https://user-images.githubusercontent.com/75618206/204577093-9e896ed6-71c2-453a-96ed-d6fe5cae5fa8.png)
+![image](https://user-images.githubusercontent.com/75618206/204577224-b1bbb9df-e9d7-4d4d-be85-0b9bc88b4c59.png)
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204577093-9e896ed6-71c2-453a-96ed-d6fe5cae5fa8.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204577224-b1bbb9df-e9d7-4d4d-be85-0b9bc88b4c59.png">
+</p>
+
+- 일반적으로 사용하는 피처를 사용하지 않았음에도 불구하고 데이터 군집 분석 결과, 사회인구학적 특성이 드러난 것을 보아 군집이 이상적으로 되었음을 확인할 수 있었다.
