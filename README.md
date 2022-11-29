@@ -290,7 +290,7 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204578396-0231fe10-ea62-4af1-adea-24b782d3da14.png">
-	<img src="https://user-images.githubusercontent.com/75618206/204577224-b1bbb9df-e9d7-4d4d-be85-0b9bc88b4c59.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204578768-e6082b03-03b2-47ef-ab88-299b407ec0c1.png">
 </p>
 
 - 일반적으로 사용하는 피처를 사용하지 않았음에도 불구하고 데이터 군집 분석 결과, 사회인구학적 특성이 드러난 것을 보아 군집이 이상적으로 되었음을 확인할 수 있었다.
