@@ -117,6 +117,7 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204564560-4e7513f9-7827-47c0-b2b3-14082fa07e03.png">
 </p>
+
 ![image](https://user-images.githubusercontent.com/75618206/204564560-4e7513f9-7827-47c0-b2b3-14082fa07e03.png)
 
 	2. PK,장소 명,카테고리 코드, 위경도, 도로명주소, 지역코드(FK)를 공통으로 가지며, 공통된 인스턴스 외에 특성을 살릴 수 있는 요소를 확장성을 고려하여 설계 예) 병원 – 평일 진료시간, 주말 진료시간
