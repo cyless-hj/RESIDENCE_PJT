@@ -246,17 +246,13 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 		- 왜도, 첨도 수치가 매우 높은 편.
 		- 군집화 형태가 이상적이지 않음
 
-<p align="center">
-	<img src="https://user-images.githubusercontent.com/75618206/204574079-542d5c0b-a77d-449e-a474-66d88fd0e46b.png">
-	<img src="https://user-images.githubusercontent.com/75618206/204574147-d1497d71-b3c6-4469-a22a-ee51584f21d3.png">
-</p>
-
 	2. Robust Scaler
 		- 중앙값 0, 사분위수의 제3사분위수에서 제1사분위수를 뺀값인 IQR이 1이 되도록 변환
 		- 다른 Scaler에 비해 표준화 진행 후의 데이터 형태는 더 넓게 나타남
 		- Robust Scaler 이용
 
 <p align="center">
+	<img src="https://user-images.githubusercontent.com/75618206/204574079-542d5c0b-a77d-449e-a474-66d88fd0e46b.png">
 	<img src="https://user-images.githubusercontent.com/75618206/204574147-d1497d71-b3c6-4469-a22a-ee51584f21d3.png">
 </p>
 
