@@ -248,6 +248,7 @@ iii.	법정동 행정동 변환 : DS 측 모델링 행정동 기준, 동코드 �
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/75618206/204574079-542d5c0b-a77d-449e-a474-66d88fd0e46b.png">
+	<img src="https://user-images.githubusercontent.com/75618206/204574147-d1497d71-b3c6-4469-a22a-ee51584f21d3.png">
 </p>
 
 	2. Robust Scaler
